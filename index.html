@@ -1,143 +1,169 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZenMedWeb – Sites & Identité pour Thérapeutes</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clarity Web – Agence Digitale</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
+  <header class="header">
     <div class="container">
-      <div class="logo">ZenMedWeb</div>
-      <nav>
+      <div class="logo">Clarity<span>Web</span></div>
+      <nav class="nav">
+        <a href="#about">À propos</a>
         <a href="#services">Services</a>
         <a href="#portfolio">Portfolio</a>
-        <a href="#offres">Offres</a>
+        <a href="#pricing">Tarifs</a>
         <a href="#contact">Contact</a>
+        <a href="#quote" class="btn-cta">Demander un devis</a>
       </nav>
     </div>
   </header>
 
   <section class="hero">
     <div class="container">
-      <h1>Créez un site à votre image<br><span>pour inspirer confiance et sérénité</span></h1>
-      <p>Sites internet haut de gamme & identité visuelle pour thérapeutes, praticiens bien-être et indépendants de la santé douce.</p>
-      <img src="img/bonhomme-zen.svg" alt="Illustration zen" class="svg-illu">
-      <a href="#contact" class="cta">Réserver un appel gratuit</a>
+      <div class="hero-content">
+        <h1>
+          Le site web qui va transformer <br><span>votre activité dès le premier mois</span>
+        </h1>
+        <p>
+          En 30 jours, notre méthode a permis à nos clients de générer leurs premiers revenus grâce à une présence en ligne claire, belle et professionnelle.
+          Nous créons pour vous un site sur-mesure, pensé pour attirer, convaincre et fidéliser.
+        </p>
+        <p><strong>Pas besoin d’être expert — on s’occupe de tout pour vous.</strong></p>
+        <a href="#services" class="btn-primary">Voir nos services</a>
+      </div>
+      <div class="hero-image">
+        <img src="img/hero-illustration.png" alt="Illustration agence" />
+      </div>
     </div>
   </section>
 
-  <section id="services" class="section services">
+  <section id="services" class="services">
     <div class="container">
-      <h2>Des services pensés pour vous</h2>
-      <div class="carousel">
-        <div class="carousel-item">
-          <h3>Site Vitrine Épuré</h3>
-          <p>Une page moderne, responsive, intuitive pour vos clients. Clair, fluide, professionnel.</p>
+      <div class="service-grid">
+        <div class="service-card">
+          <img src="img/icon-graphic.svg" alt="Graphics Design" />
+          <h3>Graphics Design</h3>
+          <p>Designs uniques pour transmettre votre message efficacement.</p>
+          <a href="#" class="btn-outline">En savoir plus</a>
         </div>
-        <div class="carousel-item">
-          <h3>Logo & Identité Visuelle</h3>
-          <p>Une image alignée à votre énergie : palette de couleurs, typographie, symboles doux.</p>
+        <div class="service-card">
+          <img src="img/icon-product.svg" alt="Product Design" />
+          <h3>Product Design</h3>
+          <p>Conception centrée utilisateur pour vos produits digitaux.</p>
+          <a href="#" class="btn-outline">En savoir plus</a>
         </div>
-        <div class="carousel-item">
-          <h3>Référencement Local</h3>
-          <p>Optimisation Google Maps et SEO local pour que vos patients vous trouvent facilement.</p>
-        </div>
-        <div class="carousel-item">
-          <h3>Prise de Rendez-vous</h3>
-          <p>Intégration de Calendly, Doctolib ou simple formulaire de réservation directe.</p>
+        <div class="service-card">
+          <img src="img/icon-uiux.svg" alt="UI & UX Design" />
+          <h3>UI & UX Design</h3>
+          <p>Interfaces intuitives pour des expériences utilisateurs engageantes.</p>
+          <a href="#" class="btn-outline">En savoir plus</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="portfolio" class="section light portfolio">
-    <div class="container">
-      <h2>Quelques réalisations</h2>
-      <div class="portfolio-grid">
-        <div class="portfolio-item appear">
-          <img src="img/sophrologie.jpg" alt="Cabinet de Sophrologie">
-          <div class="caption">Projet 1 – Cabinet de Sophrologie</div>
-        </div>
-        <div class="portfolio-item appear">
-          <img src="img/osteopathe.jpg" alt="Ostéopathe à Lyon">
-          <div class="caption">Projet 2 – Ostéopathe à Lyon</div>
-        </div>
-        <div class="portfolio-item appear">
-          <img src="img/centre-bien-etre.jpg" alt="Centre Bien-être">
-          <div class="caption">Projet 3 – Centre Bien-être</div>
-        </div>
+<section id="about" class="about-section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <h2>Pourquoi choisir ClarityWeb ?</h2>
+        <p>
+          ClarityWeb est une agence digitale spécialisée dans la création de sites web à fort impact visuel. Nous combinons design moderne, performance technique et conversion optimisée pour faire briller votre présence en ligne.
+        </p>
+        <ul>
+          <li>✨ Design moderne & responsive</li>
+          <li>💡 Accompagnement stratégique</li>
+          <li>⏳ Livraison rapide en 7 jours</li>
+        </ul>
+      </div>
+      <div class="about-image">
+        <img src="img/about-illustration.svg" alt="Agence web illustration">
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="offres" class="section">
-    <div class="container">
-      <h2>Nos Packs</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Essentiel</h3>
-          <p>Site 1 page + Formulaire<br>499€ + 9€/mois</p>
-        </div>
-        <div class="card">
-          <h3>Sérénité</h3>
-          <p>Site + Identité + Support<br>29€/mois (6 mois min)</p>
-        </div>
-        <div class="card">
-          <h3>Signature</h3>
-          <p>Site complet + Logo + Stratégie<br>à partir de 799€</p>
-        </div>
+<section id="portfolio" class="portfolio-section">
+  <div class="container">
+    <h2>Nos réalisations</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <img src="img/site1.jpg" alt="Site client 1">
+        <p>Cabinet de coaching</p>
+      </div>
+      <div class="portfolio-item">
+        <img src="img/site2.jpg" alt="Site client 2">
+        <p>Studio bien-être</p>
+      </div>
+      <div class="portfolio-item">
+        <img src="img/site3.jpg" alt="Site client 3">
+        <p>Coach sportif indépendant</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="contact" class="section light">
-    <div class="container">
-      <h2>Prendre contact</h2>
-      <form class="contact-form">
-        <input type="text" placeholder="Nom" required>
-        <input type="email" placeholder="Email" required>
-        <textarea placeholder="Votre message..." required></textarea>
-        <button type="submit">Envoyer ma demande</button>
-      </form>
+<section id="pricing" class="pricing-section">
+  <div class="container">
+    <h2>Nos Offres</h2>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <h3>Starter</h3>
+        <p>Idéal pour démarrer</p>
+        <h4>499€</h4>
+        <ul>
+          <li>Site 1 page</li>
+          <li>Design personnalisé</li>
+          <li>Optimisé mobile</li>
+        </ul>
+        <a href="#contact" class="btn-primary">Choisir</a>
+      </div>
+      <div class="pricing-card">
+        <h3>Pro</h3>
+        <p>Pour les pros ambitieux</p>
+        <h4>899€</h4>
+        <ul>
+          <li>Site complet 5 pages</li>
+          <li>SEO + Analytics</li>
+          <li>Formulaire de contact</li>
+        </ul>
+        <a href="#contact" class="btn-primary">Choisir</a>
+      </div>
+      <div class="pricing-card">
+        <h3>Premium</h3>
+        <p>Pour impacter</p>
+        <h4>1499€</h4>
+        <ul>
+          <li>Site sur-mesure</li>
+          <li>Logo + charte graphique</li>
+          <li>Accompagnement complet</li>
+        </ul>
+        <a href="#contact" class="btn-primary">Choisir</a>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    <div class="container">
-      © 2025 ZenMedWeb – Souleyman Yacef | Sites & identité visuelle thérapeutes | RCS Bobigny
-    </div>
-  </footer>
+<section id="contact" class="contact-section">
+  <div class="container">
+    <h2>Contactez-nous</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Votre nom" required />
+      <input type="email" placeholder="Votre e-mail" required />
+      <textarea placeholder="Votre message" rows="5" required></textarea>
+      <button type="submit" class="btn-primary">Envoyer ma demande</button>
+    </form>
+  </div>
+</section>
 
-  <script>
-    const header = document.querySelector("header");
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 40) {
-        header.classList.add("scrolled");
-      } else {
-        header.classList.remove("scrolled");
-      }
-    });
-
-    const faders = document.querySelectorAll('.card, .portfolio-item');
-    const appearOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('appear');
-        observer.unobserve(entry.target);
-      });
-    }, appearOptions);
-
-    faders.forEach(fader => {
-      fader.classList.add('fade-init');
-      appearOnScroll.observe(fader);
-    });
-  </script>
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 2025 ClarityWeb. Tous droits réservés.</p>
+  </div>
+</footer>
 </body>
 </html>
