@@ -1,0 +1,183 @@
+/* Fichier CSS externe : style.css */
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
+    color: #222;
+  }
+  
+  .container {
+    max-width: 1140px;
+    margin: auto;
+    padding: 0 2rem;
+  }
+  
+  header {
+    padding: 2rem 0;
+    border-bottom: 1px solid #eee;
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+  }
+  
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  
+  nav {
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-end;
+    margin-top: -2.2rem;
+  }
+  
+  nav a {
+    color: #222;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  nav a:hover {
+    color: #888;
+  }
+  
+  .hero {
+    padding: 6rem 0 4rem;
+    text-align: center;
+    background: #fafafa;
+  }
+  
+  .hero h1 {
+    font-size: 2.8rem;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1rem;
+  }
+  
+  .hero h1 span {
+    display: block;
+    font-size: 1.6rem;
+    color: #999;
+    font-weight: 400;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 1.5rem auto;
+    color: #666;
+  }
+  
+  .cta {
+    background: #222;
+    color: #fff;
+    padding: 0.9rem 2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 1rem;
+  }
+  
+  .section {
+    padding: 6rem 0;
+  }
+  
+  .section.light {
+    background-color: #f6f6f6;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+  
+  .card {
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.03);
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+  
+  .card p {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  .portfolio-item {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.03);
+    font-weight: 500;
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .contact-form button {
+    background-color: #222;
+    color: #fff;
+    padding: 1rem;
+    border: none;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  
+  footer {
+    padding: 3rem 1rem;
+    text-align: center;
+    background: #fff;
+    font-size: 0.9rem;
+    color: #777;
+    border-top: 1px solid #eee;
+  }
+  
