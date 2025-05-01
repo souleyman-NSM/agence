@@ -16,12 +16,15 @@
     --radius: 12px;
     --transition: 0.3s ease;
     --gradient: linear-gradient(135deg, #7b61ff, #21d4fd);
+    --fast-transition: 0.25s ease-in-out;
+
   }
   
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: var(--fast-transition);
   }
   
   body {
@@ -95,7 +98,6 @@
     width: 100%;
   }
   
-
   .btn-cta {
     display: inline-block;
     padding: 0.6rem 1.4rem;
@@ -109,6 +111,7 @@
     transition: all 0.4s ease;
     border: none;
     z-index: 1;
+    text-align: center;
   }
   
   .btn-cta::before {
@@ -131,6 +134,14 @@
     transform: scale(1.05);
   }
   
+  /* Spécifique au header */
+  .nav .nav-btn {
+    margin-left: 1rem;
+    font-size: 0.95rem;
+    padding: 0.5rem 1.2rem;
+    white-space: nowrap;
+  }
+  
   
   .hero {
     background: var(--gradient);
@@ -148,6 +159,15 @@
     flex-wrap: wrap;
     gap: 2rem;
   }
+
+  .hero.parallax {
+    background-image: linear-gradient(135deg, rgba(123, 97, 255, 0.85), rgba(33, 212, 253, 0.85)), url('img/bg-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+  
   
   .hero-content {
     flex: 1;
@@ -193,6 +213,7 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg, #feb47b, #ff7e5f);
+    color: #fff;
     transition: all 0.4s ease;
     z-index: -1;
   }
@@ -348,4 +369,67 @@
     text-align: center;
     font-size: 0.9rem;
   }
+
+  h2:hover, h3:hover {
+    transform: scale(1.03) translateY(-3px);
+    transition: transform 0.3s ease;
+  }
+  
+  .portfolio-item img,
+  .service-card img {
+    transition: transform 0.4s ease;
+  }
+  
+  .portfolio-item:hover img,
+  .service-card:hover img {
+    transform: scale(1.05);
+  }
+  
+
+  /* === Animations globales === */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* === Scroll reveal dynamique (appliqué dans JS) === */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+[data-animate].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
   
