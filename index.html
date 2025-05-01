@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Clarity Web – Sites web pour indépendants</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <body>
+  <div class="custom-cursor"></div>
+  <div id="preloader">
+    <div class="loader"></div>
+  </div>  
   <header class="header">
     <div class="container">
       <div class="logo">Clarity<span>Web</span></div>
@@ -22,13 +28,14 @@
     </div>
   </header>
 
-  <section class="hero parallax" data-animate>
+
+  <section class="hero parallax">
     <div class="container">
       <div class="hero-content">
         <h1>
           Le site web qui transforme <br />
           <span>chaque visite en client fidèle</span>
-        </h1>
+        </h1>        
         <p>
           Vous perdez des clients chaque jour sans le savoir.<br />
           Un site professionnel, rapide et optimisé peut devenir votre meilleur commercial.
@@ -40,7 +47,7 @@
         <a href="#services" class="btn-primary">Découvrir comment</a>
       </div>
       <div class="hero-image">
-        <img src="img/hero-illustration.png" alt="Illustration agence" />
+        <img src="img/hero-illustration.png" alt="Illustration agence" class="parallax-img" />
       </div>
     </div>
   </section>
@@ -154,6 +161,18 @@
   </footer>
 </body>
 <script>
+  window.addEventListener('load', () => {
+    gsap.to('#preloader', {
+      opacity: 0,
+      duration: 0.8,
+      onComplete: () => {
+        document.getElementById('preloader').style.display = 'none';
+      }
+    });
+  });
+</script>
+
+<script>
   const elements = document.querySelectorAll('[data-animate]');
 
   const observer = new IntersectionObserver((entries) => {
@@ -166,6 +185,83 @@
   }, { threshold: 0.1 });
 
   elements.forEach(el => observer.observe(el));
+</script>
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.utils.toArray('.parallax').forEach(section => {
+    gsap.to(section, {
+      backgroundPosition: '50% 100%',
+      ease: 'none',
+      scrollTrigger: {
+        trigger: section,
+        scrub: true
+      }
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener("mousemove", (e) => {
+    document.querySelectorAll(".parallax-img").forEach(img => {
+      const speed = 0.03;
+      const x = (window.innerWidth / 2 - e.pageX) * speed;
+      const y = (window.innerHeight / 2 - e.pageY) * speed;
+      img.style.transform = translate(${x}px, ${y}px);
+    });
+  });
+</script>
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Animation d’apparition du titre
+  gsap.to(".hero-title", {
+    opacity: 1,
+    y: 0,
+    duration: 1.4,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: ".hero-title",
+      start: "top 85%",
+    }
+  });
+
+  // Effet parallax sur le titre pendant le scroll
+  gsap.to(".parallax-text", {
+    y: -40,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".hero",
+      start: "top top",
+      end: "bottom top",
+      scrub: true
+    }
+  });
+</script>
+<script>
+  const cursor = document.querySelector('.custom-cursor');
+
+  document.addEventListener('mousemove', e => {
+    cursor.style.top = ${e.clientY}px;
+    cursor.style.left = ${e.clientX}px;
+  });
+
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+  });
+</script>
+
+<script>
+  document.addEventListener("mousemove", (e) => {
+    document.querySelectorAll(".parallax-img").forEach(img => {
+      const speed = 0.03;
+      const x = (window.innerWidth / 2 - e.pageX) * speed;
+      const y = (window.innerHeight / 2 - e.pageY) * speed;
+      img.style.transform = `translate(${x}px, ${y}px)`;
+    });
+  });
 </script>
 
 </html>

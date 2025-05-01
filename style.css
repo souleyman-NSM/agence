@@ -26,6 +26,25 @@
     box-sizing: border-box;
     transition: var(--fast-transition);
   }
+
+  .custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.15s ease;
+    z-index: 10000;
+  }
+  
+  .custom-cursor.hover {
+    transform: translate(-50%, -50%) scale(1.5);
+    background-color: var(--primary-light);
+  }
   
   body {
     font-family: 'Inter', sans-serif;
@@ -34,11 +53,44 @@
     line-height: 1.6;
     scroll-behavior: smooth;
   }
-  
+
   .container {
     width: 90%;
     max-width: 1200px;
     margin: auto;
+  }
+  
+  #preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+  
+  .loader {
+    width: 60px;
+    height: 60px;
+    border: 6px solid var(--primary-light);
+    border-top: 6px solid var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .parallax-img {
+    will-change: transform;
+    transition: transform 0.2s ease-out;
   }
   
   .header {
@@ -168,6 +220,22 @@
     background-repeat: no-repeat;
   }
   
+  .hero-title {
+    font-size: 3.4rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .hero-title span {
+    display: block;
+    font-size: 3.6rem;
+    margin-top: 0.5rem;
+    animation: glowText 2s ease-in-out infinite alternate;
+  }
   
   .hero-content {
     flex: 1;
@@ -417,6 +485,21 @@
   100% {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+  
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes glowText {
+  from {
+    text-shadow: 0 0 8px var(--primary-light);
+  }
+  to {
+    text-shadow: 0 0 20px var(--secondary-light), 0 0 30px var(--secondary);
   }
 }
 
