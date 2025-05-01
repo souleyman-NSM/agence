@@ -5,12 +5,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Clarity Web – Sites web pour indépendants</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <body>
   <div class="custom-cursor"></div>
+  <div id="progress-bar"></div>
   <div id="preloader">
     <div class="loader"></div>
   </div>  
@@ -23,7 +25,7 @@
         <a href="#portfolio">Réalisations</a>
         <a href="#pricing">Tarifs</a>
         <a href="#contact">Contact</a>
-        <a href="#quote" class="btn-cta">Demander un devis</a>
+        <a href="#quote" class="btn-cta" style="color: white;">Demander un devis</a>
       </nav>
     </div>
   </header>
@@ -32,7 +34,7 @@
   <section class="hero parallax">
     <div class="container">
       <div class="hero-content">
-        <h1 data-animate>
+        <h1 class="animated-title" data-animate>
           Le site web qui transforme <br />
           <span>chaque visite en client fidèle</span>
         </h1>        
@@ -57,29 +59,60 @@
     <div class="container">
       <h2>Des services pensés pour convertir</h2>
       <div class="service-grid" data-animate>
+        
         <div class="service-card">
+          <div class="icon">
+            <img src="img/icon-responsive.svg" alt="Icône Site responsive" />
+          </div>
           <h3>Site responsive</h3>
           <p>Un design adapté à tous les écrans pour un rendu professionnel partout.</p>
         </div>
+  
         <div class="service-card">
+          <div class="icon">
+            <img src="img/icon-identity.svg" alt="Icône Identité visuelle" />
+          </div>
           <h3>Identité visuelle</h3>
           <p>Logo, couleurs, typographie... On construit votre image de marque ensemble.</p>
         </div>
+  
         <div class="service-card">
+          <div class="icon">
+            <img src="img/icon-seo.svg" alt="Icône SEO local" />
+          </div>
           <h3>SEO local</h3>
           <p>Boostez votre visibilité sur Google dans votre ville ou région.</p>
         </div>
+  
         <div class="service-card">
+          <div class="icon">
+            <img src="img/icon-booking.svg" alt="Icône Réservation" />
+          </div>
           <h3>Réservation en ligne</h3>
           <p>Prise de rendez-vous intégrée via WhatsApp, Calendly ou Doctolib.</p>
         </div>
+  
         <div class="service-card">
+          <div class="icon">
+            <img src="img/icon-premium.svg" alt="Icône Premium" />
+          </div>
           <h3>Accompagnement Premium</h3>
           <p>Conseil stratégique, tunnel de vente, design personnalisé.</p>
         </div>
+  
+        <div class="service-card">
+          <div class="icon">
+            <img src="img/icon-rocket.svg" alt="Icône Lancement express" />
+          </div>
+          <h3>Lancement express</h3>
+          <p>Votre site prêt en 72h pour démarrer rapidement votre activité.</p>
+        </div>
+  
       </div>
     </div>
   </section>
+  
+  
 
   <section id="portfolio" class="portfolio-section">
     <div class="container" data-animate>
@@ -161,6 +194,7 @@
   </footer>
 </body>
 <script>
+  // ✅ 1. Masquer le préchargeur au chargement complet de la page
   window.addEventListener('load', () => {
     gsap.to('#preloader', {
       opacity: 0,
@@ -173,6 +207,7 @@
 </script>
 
 <script>
+  // ✅ 2. Scroll Reveal : fait apparaître les éléments avec [data-animate] quand ils entrent en vue
   const elements = document.querySelectorAll('[data-animate]');
 
   const observer = new IntersectionObserver((entries) => {
@@ -188,6 +223,7 @@
 </script>
 
 <script>
+  // ✅ 3. Parallax sur les sections avec la classe .parallax (arrière-plan qui bouge au scroll)
   gsap.registerPlugin(ScrollTrigger);
 
   gsap.utils.toArray('.parallax').forEach(section => {
@@ -203,6 +239,27 @@
 </script>
 
 <script>
+  // ✅ 4. Apparition en cascade des cartes services (animations décalées)
+
+gsap.utils.toArray('.service-card').forEach((card, i) => {
+  gsap.from(card, {
+    opacity: 0,
+    y: 40,
+    delay: i * 0.2,
+    scrollTrigger: {
+      trigger: card,
+      start: "top 85%",
+      toggleActions: "play none none none"
+    }
+  });
+});
+</script>
+
+
+
+<script>
+  // ✅ 5. Parallax doux sur les images avec la classe .parallax-img en fonction de la souris
+
   document.addEventListener("mousemove", (e) => {
     document.querySelectorAll(".parallax-img").forEach(img => {
       const speed = 0.03;
@@ -215,7 +272,7 @@
 <script>
   gsap.registerPlugin(ScrollTrigger);
 
-  // Animation d’apparition du titre
+// ✅ 6. Apparition animée du titre principal avec effet GSAP (quand il entre dans l’écran)
   gsap.to(".hero-title", {
     opacity: 1,
     y: 0,
@@ -240,6 +297,7 @@
   });
 </script>
 <script>
+  // ✅ 7. Curseur personnalisé qui suit la souris
   const cursor = document.querySelector('.custom-cursor');
 
   document.addEventListener('mousemove', e => {
@@ -262,6 +320,77 @@
       img.style.transform = `translate(${x}px, ${y}px)`;
     });
   });
+</script>
+
+<script>
+  // ✅ 8. Titre animé lettre par lettre (si tu as des .animated-title avec data-text)
+document.querySelectorAll('.animated-title').forEach(title => {
+  const text = title.dataset.text;
+  title.innerHTML = text
+    .split('')
+    .map(char => `<span class="letter">${char}</span>`)
+    .join('');
+
+  gsap.fromTo(title.querySelectorAll('.letter'), {
+    opacity: 0,
+    y: 20,
+  }, {
+    opacity: 1,
+    y: 0,
+    stagger: 0.03,
+    ease: "power2.out",
+    duration: 0.5,
+    scrollTrigger: {
+      trigger: title,
+      start: "top 90%",
+    }
+  });
+});
+</script>
+
+<script>
+  // ✅ 9. Barre de progression de scroll en haut de la page
+  window.addEventListener('scroll', () => {
+  const scroll = window.scrollY;
+  const height = document.body.scrollHeight - window.innerHeight;
+  const progress = (scroll / height) * 100;
+  document.getElementById('progress-bar').style.width = `${progress}%`;
+});
+</script>
+
+<script>
+  // ✅ 10. Animation des images portfolio au scroll (zoom et fade in)
+  gsap.utils.toArray('.portfolio-item img').forEach(img => {
+  gsap.from(img, {
+    scale: 1.1,
+    opacity: 0,
+    duration: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: img,
+      start: "top 90%",
+      toggleActions: "play none none none"
+    }
+  });
+});
+
+
+</script>
+
+<script>
+  // ✅ 11. Effet “magnétique” sur les boutons (suivent un peu le curseur)
+  document.querySelectorAll('.btn-primary, .btn-cta').forEach(btn => {
+  btn.addEventListener('mousemove', e => {
+    const rect = btn.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    btn.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+  });
+  btn.addEventListener('mouseleave', () => {
+    btn.style.transform = 'translate(0, 0)';
+  });
+});
+
 </script>
 
 </html>

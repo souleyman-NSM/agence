@@ -325,6 +325,26 @@
     transition: transform var(--transition), box-shadow var(--transition);
   }
   
+  .service-card {
+    background: var(--white);
+    padding: 3rem 2rem 2rem; /* on ajoute de l'espace pour l'icône */
+    border-radius: var(--radius);
+    box-shadow: 0 4px 16px var(--shadow);
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    will-change: transform;
+  }
+
+  .service-card * {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  }
+
   .service-card:hover, .portfolio-item:hover, .pricing-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 8px 24px var(--shadow);
@@ -339,6 +359,32 @@
     color: var(--gray);
   }
   
+  .service-card {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease;
+  }
+  .service-card:hover {
+    transform: rotateY(5deg) scale(1.02);
+  }
+  
+  .service-card:hover::before {
+    opacity: 0.06;
+  }
+
+  .service-card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(135deg, var(--primary-light), var(--secondary-light));
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 0;
+  }
+
   .btn-outline {
     position: relative;
     display: inline-block;
@@ -443,6 +489,18 @@
     transition: transform 0.3s ease;
   }
   
+  .service-card {
+    position: relative;
+    background: var(--white);
+    padding: 3rem 2rem 2rem; /* on ajoute de l'espace pour l'icône */
+    border-radius: var(--radius);
+    box-shadow: 0 4px 16px var(--shadow);
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    will-change: transform;
+  }
+
   .portfolio-item img,
   .service-card img {
     transition: transform 0.4s ease;
@@ -452,7 +510,33 @@
   .service-card:hover img {
     transform: scale(1.05);
   }
+
+  .service-card .icon {
+    margin-bottom: 1rem;
+  }
   
+  .service-card .icon img {
+    width: 48px;
+    height: 48px;
+    transition: transform 0.4s ease;
+  }
+  
+  .service-card:hover .icon img {
+    transform: rotate(6deg) scale(1.1);
+  }  
+ 
+  #progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: var(--primary);
+    width: 0%;
+    z-index: 9999;
+  }
+
+  
+   
 
   /* === Animations globales === */
 @keyframes fadeInUp {
