@@ -32,7 +32,7 @@
   <section class="hero parallax">
     <div class="container">
       <div class="hero-content">
-        <h1>
+        <h1 data-animate>
           Le site web qui transforme <br />
           <span>chaque visite en client fidèle</span>
         </h1>        
@@ -208,7 +208,7 @@
       const speed = 0.03;
       const x = (window.innerWidth / 2 - e.pageX) * speed;
       const y = (window.innerHeight / 2 - e.pageY) * speed;
-      img.style.transform = translate(${x}px, ${y}px);
+      img.style.transform = `translate(${x}px, ${y}px)`;
     });
   });
 </script>
@@ -243,8 +243,8 @@
   const cursor = document.querySelector('.custom-cursor');
 
   document.addEventListener('mousemove', e => {
-    cursor.style.top = ${e.clientY}px;
-    cursor.style.left = ${e.clientX}px;
+    cursor.style.top = `${e.clientY}px`;
+    cursor.style.left = `${e.clientX}px`;
   });
 
   document.querySelectorAll('a, button').forEach(el => {
