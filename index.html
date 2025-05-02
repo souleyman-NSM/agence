@@ -78,7 +78,7 @@
   
         <div class="service-card">
           <div class="icon">
-            <img src="img/icon-seo.svg" alt="Icône SEO local" />
+            <img src="img/icon-seo.png" alt="Icône SEO local" />
           </div>
           <h3>SEO local</h3>
           <p>Boostez votre visibilité sur Google dans votre ville ou région.</p>
@@ -86,7 +86,7 @@
   
         <div class="service-card">
           <div class="icon">
-            <img src="img/icon-booking.svg" alt="Icône Réservation" />
+            <img src="img/icon-booking.png" alt="Icône Réservation" />
           </div>
           <h3>Réservation en ligne</h3>
           <p>Prise de rendez-vous intégrée via WhatsApp, Calendly ou Doctolib.</p>
@@ -94,15 +94,15 @@
   
         <div class="service-card">
           <div class="icon">
-            <img src="img/icon-premium.svg" alt="Icône Premium" />
+            <img src="img/icon-prenium.png" alt="Icône Premium" />
           </div>
-          <h3>Accompagnement Premium</h3>
+          <h3>Accompagnement Prenium</h3>
           <p>Conseil stratégique, tunnel de vente, design personnalisé.</p>
         </div>
   
         <div class="service-card">
           <div class="icon">
-            <img src="img/icon-rocket.svg" alt="Icône Lancement express" />
+            <img src="img/icon-rocket.png" alt="Icône Lancement express" />
           </div>
           <h3>Lancement express</h3>
           <p>Votre site prêt en 72h pour démarrer rapidement votre activité.</p>
@@ -119,15 +119,27 @@
       <h2>Nos dernières réalisations</h2>
       <div class="portfolio-grid" data-animate>
         <div class="portfolio-item">
-          <img src="img/breaksolidaire.jpg" alt="Breaksolidaire">
+          <a href="img/breaksolidaire.png" class="lightbox">
+            <div class="portfolio-thumb">
+              <img src="img/breaksolidaire.png" alt="Breaksolidaire">
+            </div>
+          </a>
           <p>Breaksolidaire : plateforme engagée pour les jeunes</p>
         </div>
         <div class="portfolio-item">
-          <img src="img/harpietech.jpg" alt="Harpie Tech">
+          <a href="img/harpietech.jpg" class="lightbox">
+            <div class="portfolio-thumb">
+              <img src="img/harpietech.jpg" alt="Harpie Tech">
+            </div>
+          </a>
           <p>Harpie Tech : solution SaaS moderne pour entreprise tech</p>
         </div>
         <div class="portfolio-item">
-          <img src="img/placeholder.jpg" alt="Projet à venir">
+          <a href="img/placeholder.jpg" class="lightbox">
+            <div class="portfolio-thumb">
+              <img src="img/placeholder.jpg" alt="Projet à venir">
+            </div>
+          </a>
           <p>Votre projet pourrait être le prochain !</p>
         </div>
       </div>
@@ -391,6 +403,24 @@ document.querySelectorAll('.animated-title').forEach(title => {
   });
 });
 
+</script>
+
+
+<script>
+  // Lightbox logic
+  document.querySelectorAll('.lightbox').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const modal = document.getElementById('lightbox-modal');
+      const img = document.getElementById('lightbox-img');
+      img.src = this.href;
+      modal.style.display = 'flex';
+    });
+  });
+
+  document.querySelector('.lightbox-close').addEventListener('click', () => {
+    document.getElementById('lightbox-modal').style.display = 'none';
+  });
 </script>
 
 </html>

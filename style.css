@@ -324,7 +324,7 @@
     text-align: center;
     transition: transform var(--transition), box-shadow var(--transition);
   }
-  
+
   .service-card {
     background: var(--white);
     padding: 3rem 2rem 2rem; /* on ajoute de l'espace pour l'icône */
@@ -502,6 +502,10 @@
     will-change: transform;
   }
 
+  .portfolio-item img{
+    max-height: 120px; /* ajuste à ce que tu veux */
+  }
+
   .portfolio-item img,
   .service-card img {
     transition: transform 0.4s ease;
@@ -510,6 +514,49 @@
   .portfolio-item:hover img,
   .service-card:hover img {
     transform: scale(1.05);
+  }
+
+  .portfolio-thumb {
+    width: 100%;
+    aspect-ratio: 4 / 3; /* ou 16 / 9 */
+    overflow: hidden;
+    border-radius: var(--radius);
+  }
+  
+  .portfolio-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+
+  .lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.6);
+    border-radius: var(--radius);
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
   }
 
   .service-card .icon {
