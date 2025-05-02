@@ -516,20 +516,6 @@
     transform: scale(1.05);
   }
 
-  .portfolio-thumb {
-    width: 100%;
-    aspect-ratio: 4 / 3; /* ou 16 / 9 */
-    overflow: hidden;
-    border-radius: var(--radius);
-  }
-  
-  .portfolio-thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-
   .lightbox-modal {
     display: none;
     position: fixed;
@@ -541,6 +527,7 @@
     background: rgba(0, 0, 0, 0.85);
     align-items: center;
     justify-content: center;
+    pointer-events: none;
   }
 
   .lightbox-content {
@@ -559,6 +546,10 @@
     cursor: pointer;
   }
 
+  .lightbox-modal[style*="display: flex"] {
+    pointer-events: auto;
+  }
+  
   .service-card .icon {
     margin-bottom: 1rem;
   }

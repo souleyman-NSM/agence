@@ -204,6 +204,10 @@
       <p>&copy; 2025 ClarityWeb. Conçu avec passion pour les indépendants ambitieux.</p>
     </div>
   </footer>
+  <div id="lightbox-modal" class="lightbox-modal">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" class="lightbox-content" src="" alt="Image en grand format" />
+  </div>
 </body>
 <script>
   // ✅ 1. Masquer le préchargeur au chargement complet de la page
@@ -409,18 +413,45 @@ document.querySelectorAll('.animated-title').forEach(title => {
 <script>
   // Lightbox logic
   document.querySelectorAll('.lightbox').forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      const modal = document.getElementById('lightbox-modal');
-      const img = document.getElementById('lightbox-img');
-      img.src = this.href;
-      modal.style.display = 'flex';
-    });
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const modal = document.getElementById('lightbox-modal');
+    const img = document.getElementById('lightbox-img');
+    img.src = this.href;
+
+    // ✅ Activation clics sur le modal
+    gsap.set(modal, { display: 'flex', opacity: 0, pointerEvents: 'auto' });
+    gsap.set(img, { scale: 0.8, opacity: 0 });
+
+    gsap.to(modal, { opacity: 1, duration: 0.3 });
+    gsap.to(img, { scale: 1, opacity: 1, duration: 0.4, ease: 'back.out(1.7)' });
   });
+});
 
   document.querySelector('.lightbox-close').addEventListener('click', () => {
     document.getElementById('lightbox-modal').style.display = 'none';
   });
 </script>
+
+
+<script>
+document.getElementById('lightbox-modal').addEventListener('click', (e) => {
+  const img = document.getElementById('lightbox-img');
+  if (!img.contains(e.target)) {
+    gsap.to(img, { scale: 0.8, opacity: 0, duration: 0.3 });
+    gsap.to(e.currentTarget, {
+      opacity: 0,
+      duration: 0.3,
+      delay: 0.2,
+      onComplete: () => {
+        e.currentTarget.style.display = 'none';
+        e.currentTarget.style.pointerEvents = 'none'; // ✅ Ajout ici
+      }
+    });
+  }
+});
+
+</script>
+
 
 </html>
