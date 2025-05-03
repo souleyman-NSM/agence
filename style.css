@@ -677,6 +677,80 @@
     font-size: 0.9rem;
   }
 
+  .footer {
+    background: var(--dark);
+    color: var(--white);
+    padding: 3rem 0 1rem;
+    font-size: 0.95rem;
+  }
+  
+  .footer-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 3rem;
+    margin-bottom: 2rem;
+  }
+  
+  .footer-brand {
+    flex: 1;
+    min-width: 220px;
+  }
+  
+  .footer-brand .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-links,
+  .footer-legal {
+    flex: 1;
+    min-width: 160px;
+  }
+  
+  .footer-links h4,
+  .footer-legal h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--white);
+  }
+  
+  .footer-links ul,
+  .footer-legal ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-links li,
+  .footer-legal li {
+    margin-bottom: 0.6rem;
+  }
+  
+  .footer-links a,
+  .footer-legal a {
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links a:hover,
+  .footer-legal a:hover {
+    color: var(--white);
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--gray);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1rem;
+  }
+  
+
   h2:hover, h3:hover {
     transform: scale(1.03) translateY(-3px);
     transition: transform 0.3s ease;
