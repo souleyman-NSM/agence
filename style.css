@@ -455,6 +455,79 @@
     transform: translateX(-100%);
   }
 }
+
+.about-section-uiux {
+  background: linear-gradient(135deg, #f8f9fb, #ffffff);
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-section-uiux .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  text-align: center;
+}
+
+.about-section-uiux h2 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.2rem;
+}
+
+.about-section-uiux p {
+  font-size: 1.2rem;
+  color: var(--text);
+  max-width: 800px;
+  margin-bottom: 2rem;
+}
+
+.about-section-uiux .features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+.about-section-uiux .feature {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-section-uiux .feature:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.about-section-uiux .feature img {
+  width: 60px;
+  margin-bottom: 1rem;
+}
+
+.about-section-uiux .feature h3 {
+  color: var(--primary);
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.about-section-uiux .feature p {
+  color: var(--gray);
+  font-size: 0.95rem;
+}
+
+.about-section-uiux .btn-primary {
+  margin-top: 2rem;
+}
+
   .services, .about-section, .portfolio-section, .pricing-section {
     padding: 6rem 0;
   }
