@@ -46,7 +46,7 @@
         <img src="img/hero-clarity.png" alt="Illustration premium ClarityWeb" />
       </div>
     </div>
-  
+    
     <!-- Bande défilante de logos -->
     <div class="logo-marquee">
       <div class="logo-track">
@@ -535,18 +535,29 @@ document.getElementById('lightbox-modal').addEventListener('click', (e) => {
 </script>
 
 <script>
-  // ✅ Ajoute une animation visuelle temporaire sur le lien actif
   document.querySelectorAll(".nav a[href^='#']").forEach(link => {
-    link.addEventListener("click", function () {
+    link.addEventListener("click", function (e) {
+      e.preventDefault(); // empêcher le scroll instantané par défaut
+      const targetId = this.getAttribute("href");
+      const target = document.querySelector(targetId);
+
+      if (target) {
+        // Scroll animé avec GSAP ScrollToPlugin
+        gsap.to(window, {
+          scrollTo: target,
+          duration: 1,
+          ease: "power2.out"
+        });
+      }
+
+      // Animation visuelle temporaire
       document.querySelectorAll(".nav a").forEach(el => el.classList.remove("active-anim", "animate"));
       this.classList.add("active-anim");
 
-      // Lance l'animation de soulignement
       setTimeout(() => {
         this.classList.add("animate");
       }, 10);
 
-      // Supprime l'effet après 1.5s
       setTimeout(() => {
         this.classList.remove("animate");
       }, 1500);
@@ -555,5 +566,5 @@ document.getElementById('lightbox-modal').addEventListener('click', (e) => {
 </script>
 
 
-</html>
 
+</html>
