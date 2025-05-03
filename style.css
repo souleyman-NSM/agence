@@ -337,13 +337,11 @@
   
   .hero-image img {
     width: 100%;
-    max-width: 500px;
+    max-width: 100%;
     height: auto;
     animation: floatImage 6s ease-in-out infinite;
     filter: drop-shadow(0 0 40px rgba(99, 102, 241, 0.5));
   }
-
-  
 
   @keyframes floatImage {
     0%, 100% { transform: translateY(0); }
