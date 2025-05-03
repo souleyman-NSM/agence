@@ -148,6 +148,28 @@
   .nav a:hover::after {
     width: 100%;
   }
+
+  /* === Animation visuelle au clic sur un lien de la navbar === */
+.nav a.active-anim {
+  position: relative;
+  color: var(--primary);
+}
+
+.nav a.active-anim::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--gradient);
+  transition: width 0.4s ease, left 0.4s ease;
+}
+
+.nav a.active-anim.animate::after {
+  width: 100%;
+  left: 0;
+}
   
   .btn-cta {
     display: inline-block;
@@ -428,7 +450,6 @@
     transform: translateX(-100%);
   }
 }
-
   .services, .about-section, .portfolio-section, .pricing-section {
     padding: 6rem 0;
   }
