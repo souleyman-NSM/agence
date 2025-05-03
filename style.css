@@ -17,7 +17,6 @@
     --transition: 0.3s ease;
     --gradient: linear-gradient(135deg, #7b61ff, #21d4fd);
     --fast-transition: 0.25s ease-in-out;
-
   }
   
   * {
@@ -153,6 +152,7 @@
   .btn-cta {
     display: inline-block;
     padding: 0.6rem 1.4rem;
+
     border-radius: 50px;
     font-weight: 600;
     background: var(--gradient);
@@ -166,6 +166,22 @@
     text-align: center;
   }
   
+  .project-description {
+    margin-top: 1.5rem; /* ou 5% si tu préfères en pourcentage */
+  }
+  
+  .project-description.secret {
+    text-transform: uppercase;
+    margin-top: 1.5rem;
+  }
+  
+  .emoji-secret {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+
   .btn-cta::before {
     content: '';
     position: absolute;
@@ -186,6 +202,11 @@
     transform: scale(1.05);
   }
   
+  .btn-cta.site {
+    margin-top: 1.5rem; /* ou 5%, selon ton design */
+    display: inline-block;
+  }
+  
   /* Spécifique au header */
   .nav .nav-btn {
     margin-left: 1rem;
@@ -194,6 +215,14 @@
     white-space: nowrap;
   }
   
+  .hero-section {
+    position: relative;
+    background: linear-gradient(135deg, var(--primary), var(--secondary)), url('img/hero-background.jpg') no-repeat center center / cover;
+    color: var(--white);
+    padding: 8rem 2rem 6rem;
+    text-align: center;
+    overflow: hidden;
+  }
   
   .hero {
     background: var(--gradient);
@@ -242,11 +271,11 @@
     max-width: 600px;
   }
   
-  .hero h1 {
-    font-size: 3.4rem;
+  .hero-content h1 {
+    font-size: 3.8rem;
     font-weight: 800;
-    margin-bottom: 1rem;
     line-height: 1.2;
+    color: var(--white);
   }
   
   .hero p {
@@ -293,6 +322,10 @@
   .btn-primary:hover {
     transform: scale(1.05);
   }
+
+  .price{
+    margin-top: 1.5rem;
+  }
   
   .hero-image {
     flex: 1;
@@ -301,11 +334,72 @@
   
   .hero-image img {
     width: 100%;
-    max-width: 500px;
+    max-width: 480px;
     height: auto;
+    filter: drop-shadow(0 0 40px rgba(99, 102, 241, 0.5));
+    animation: floatImage 6s ease-in-out infinite;
   }
   
-  .services, .about-section, .portfolio-section, .pricing-section, .contact-section {
+
+@keyframes floatImage {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glowText {
+  from {
+    text-shadow: 0 0 8px var(--primary-light);
+  }
+  to {
+    text-shadow: 0 0 16px var(--secondary-light), 0 0 24px var(--secondary);
+  }
+}
+  
+
+.logo-marquee {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.04);
+  padding: 1rem 0;
+}
+
+.logo-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 24s linear infinite;
+  gap: 3rem;
+  align-items: center;
+  padding-left: 100%;
+}
+
+.logo-track img {
+  height: 32px;
+  opacity: 0.8;
+  filter: grayscale(100%) brightness(1.2);
+  transition: opacity 0.3s ease;
+}
+
+.logo-track img:hover {
+  opacity: 1;
+  filter: none;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+  .services, .about-section, .portfolio-section, .pricing-section {
     padding: 6rem 0;
   }
   
@@ -444,39 +538,86 @@
     color: var(--secondary);
     margin: 1rem 0;
   }
-  
-  .contact-form {
-    max-width: 600px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .contact-form input,
-  .contact-form textarea {
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: var(--radius);
-    font-size: 1rem;
-  }
-  
-  .contact-form button {
-    background: var(--gradient);
-    border: none;
-    color: var(--white);
-    padding: 1rem;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: var(--radius);
-    cursor: pointer;
-    transition: var(--transition);
-  }
-  
-  .contact-form button:hover {
-    opacity: 0.9;
-  }
-  
+
+  /* ===== Contact Section améliorée ===== */
+.contact-section {
+  background: var(--light);
+  padding: 6rem 0;
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.contact-section p {
+  font-size: 1.1rem;
+  color: var(--gray);
+  margin-bottom: 2.5rem;
+}
+
+.contact-form {
+  max-width: 800px;
+  margin: auto;
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ===== Champs du formulaire améliorés ===== */
+
+.contact-form input,
+.contact-form textarea {
+  margin-top: 1rem; 
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  font-size: 1rem;
+  width: 100%;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background-color: #fff;
+}
+
+/* Style du placeholder raffiné */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--gray);
+  font-style: italic;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+/* Effet focus avec glow doux */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border: 1px solid var(--primary);
+  box-shadow: 0 0 0 4px rgba(123, 97, 255, 0.15);
+  outline: none;
+}
+
+/* Ajoute un peu de douceur sur le textarea */
+.contact-form textarea {
+  resize: vertical;
+  min-height: 140px;
+  line-height: 1.6;
+}
+
+/* Animation à l’apparition */
+.contact-form {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
   .footer {
     padding: 2rem;
     background: var(--dark);
@@ -626,6 +767,30 @@
   }
 }
 
+@keyframes pulse-secret {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+}
+
+.emoji-secret {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 1rem;
+  animation: pulse-secret 2s infinite ease-in-out;
+  display: inline-block;
+}
+
+
 /* === Scroll reveal dynamique (appliqué dans JS) === */
 [data-animate] {
   opacity: 0;
@@ -638,4 +803,88 @@
   transform: translateY(0);
 }
 
-  
+.hero-section {
+  position: relative;
+  background: linear-gradient(to right, #1e1e2f, #10111f);
+  color: var(--white);
+  padding: 10rem 2rem 8rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+
+.hero-section {
+  position: relative;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: var(--white);
+  padding: 8rem 2rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.cta-button {
+  background-color: var(--white);
+  color: var(--primary);
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: var(--primary-light);
+  color: var(--white);
+}
+
+.logo-marquee {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 1rem 0;
+}
+
+.logo-track {
+  display: flex;
+  width: calc(250px * 10);
+  animation: scroll 20s linear infinite;
+}
+
+.logo-track img {
+  width: 250px;
+  margin: 0 1rem;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.logo-track img:hover {
+  opacity: 1;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

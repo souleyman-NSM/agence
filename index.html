@@ -31,28 +31,33 @@
   </header>
 
 
-  <section class="hero parallax">
+  <section class="hero-section">
     <div class="container">
       <div class="hero-content">
-        <h1 class="animated-title" data-animate>
-          Le site web qui transforme <br />
-          <span>chaque visite en client fidèle</span>
-        </h1>        
-        <p>
-          Vous perdez des clients chaque jour sans le savoir.<br />
+        <h1>Le site web qui transforme<br><span>chaque visite en client fidèle</span></h1>
+        <p>Vous perdez des clients chaque jour sans le savoir.<br>
           Un site professionnel, rapide et optimisé peut devenir votre meilleur commercial.
         </p>
-        <p><strong>
-          Nous ne créons pas seulement un site, nous propulsons votre activité.
-        </strong></p>
+        <p><strong>Nous ne créons pas seulement un site, nous propulsons votre activité.</strong></p>
         <p>Grâce à notre accompagnement stratégique, nos clients gagnent en visibilité, en crédibilité… et en revenus.</p>
         <a href="#services" class="btn-primary">Découvrir comment</a>
       </div>
-      <div class="hero-image">
-        <img src="img/hero-illustration.png" alt="Illustration agence" class="parallax-img" />
+    </div>
+  
+    <!-- Bande défilante de logos -->
+    <div class="logo-marquee">
+      <div class="logo-track">
+        <img src="img/logos/adobe.svg" alt="Adobe" />
+        <img src="img/logos/notion.svg" alt="Notion" />
+        <img src="img/logos/figma.svg" alt="Figma" />
+        <img src="img/logos/shopify.svg" alt="Shopify" />
+        <img src="img/logos/webflow.svg" alt="Webflow" />
+        <img src="img/logos/slack.svg" alt="Slack" />
+        <!-- Duplique si nécessaire -->
       </div>
     </div>
   </section>
+  
   
 
   <section id="services" class="services">
@@ -112,8 +117,6 @@
     </div>
   </section>
   
-  
-
   <section id="portfolio" class="portfolio-section">
     <div class="container" data-animate>
       <h2>Nos dernières réalisations</h2>
@@ -124,8 +127,8 @@
               <img src="img/breaksolidaire.png" alt="Breaksolidaire">
             </div>
           </a>
-          <p>Breaksolidaire : plateforme engagée pour les jeunes</p>
-          <a href="https://break-solidaire.com/" target="_blank" class="btn-outline">Voir le site</a>
+          <p class="project-description">Breaksolidaire : plateforme engagée pour les jeunes</p>
+          <a href="https://break-solidaire.com/" target="_blank" class="btn-cta site">Voir le site</a>
         </div>
         <div class="portfolio-item">
           <a href="img/harpietech.png" class="lightbox">
@@ -133,16 +136,17 @@
               <img src="img/harpietech.png" alt="Harpie Tech">
             </div>
           </a>
-          <p>Harpie Tech : solution SaaS moderne pour entreprise tech</p>
-          <a href="https://www.harpie-tech.com/" target="_blank" class="btn-cta">Voir le site</a>
+          <p class="project-description">Harpie Tech : solution SaaS moderne pour entreprise tech</p>
+          <a href="https://www.harpie-tech.com/" target="_blank" class="btn-cta site">Voir le site</a>
         </div>
         <div class="portfolio-item">
-          <a href="img/placeholder.jpg" class="lightbox">
+          <a href="img/placeholder.png" class="lightbox">
             <div class="portfolio-thumb">
-              <img src="img/placeholder.jpg" alt="Projet à venir">
+              <img src="img/placeholder.png" alt="Projet à venir">
             </div>
           </a>
-          <p>Votre projet pourrait être le prochain !</p>
+          <p class="project-description secret">UNE ÉNORME PROJET WEB POUR UN CLIENT TRÈS AMBITIEUX DANS LE DOMAINE MÉDICAL</p>
+          <div class="emoji-secret">🤫</div>
         </div>
       </div>
     </div>
@@ -155,24 +159,24 @@
         <div class="pricing-card">
           <h3>Essentiel</h3>
           <p>Pour les premières impressions</p>
-          <h4>499€</h4>
+          <h4>799€</h4>
           <ul>
             <li>Page unique</li>
             <li>Formulaire de contact</li>
             <li>Design adaptatif</li>
           </ul>
-          <a href="#contact" class="btn-primary">Choisir</a>
+          <a href="#contact" class="btn-primary price">Choisir</a>
         </div>
         <div class="pricing-card">
           <h3>Pro</h3>
           <p>Pour passer à la vitesse supérieure</p>
-          <h4>899€</h4>
+          <h4>999€</h4>
           <ul>
-            <li>5 pages personnalisées</li>
+            <li>Plusieurs pages personnalisées</li>
             <li>Logo et charte graphique</li>
             <li>Google Analytics & SEO</li>
           </ul>
-          <a href="#contact" class="btn-primary">Choisir</a>
+          <a href="#contact" class="btn-primary price">Choisir</a>
         </div>
         <div class="pricing-card">
           <h3>Signature</h3>
@@ -183,7 +187,7 @@
             <li>Calendly, WhatsApp intégré</li>
             <li>Stratégie + support sur 30j</li>
           </ul>
-          <a href="#contact" class="btn-primary">Choisir</a>
+          <a href="#contact" class="btn-primary price">Choisir</a>
         </div>
       </div>
     </div>
@@ -191,15 +195,19 @@
 
   <section id="contact" class="contact-section" data-animate>
     <div class="container">
-      <h2>Prêt à booster votre activité ?</h2>
-      <form class="contact-form">
-        <input type="text" placeholder="Votre nom" required />
-        <input type="email" placeholder="Votre e-mail" required />
-        <textarea placeholder="Décrivez votre projet..." rows="5" required></textarea>
+      <h2 class="contact-title">Prêt à booster votre activité ?</h2>
+      <p class="contact-subtitle">Parlez-nous de vos besoins et laissez-nous transformer vos idées en réalité digitale.</p>
+      <form class="contact-form enhanced-form">
+        <div class="form-row">
+          <input type="text" placeholder="Votre nom" required />
+          <input type="email" placeholder="Votre e-mail" required />
+        </div>
+        <textarea placeholder="Décrivez votre projet..." rows="6" required></textarea>
         <button type="submit" class="btn-primary">Envoyer ma demande</button>
       </form>
     </div>
   </section>
+  
 
   <footer class="footer">
     <div class="container">
@@ -458,6 +466,20 @@ document.getElementById('lightbox-modal').addEventListener('click', (e) => {
   }
 });
 
+</script>
+
+<script>
+  // Animation GSAP pour le formulaire de contact
+  gsap.to(".contact-form", {
+    scrollTrigger: {
+      trigger: ".contact-form",
+      start: "top 85%",
+    },
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    ease: "power2.out"
+  });
 </script>
 
 
