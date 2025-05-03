@@ -395,13 +395,6 @@
   animation: scrollRightInfinite 12s linear infinite;
 }
 
-.logo-track img {
-  height: 32px;
-  margin: 0 2rem;
-  opacity: 0.8;
-  filter: grayscale(100%) brightness(1.2);
-  transition: opacity 0.3s ease;
-}
 
 .logo-track img:hover {
   opacity: 1;
@@ -411,6 +404,7 @@
 .logo-set {
   display: flex;
   gap: 2.5rem;
+  margin-right: 2.5rem; /* 👈 espace entre chaque répétition */
 }
 
 .logo-set img {
@@ -909,7 +903,8 @@
 }
 
 .logo-track img {
-  width: 250px;
+  width: 75px;
+  height: auto;
   margin: 0 1rem;
   opacity: 0.8;
   transition: opacity 0.3s ease;
