@@ -383,16 +383,16 @@
   
 
 .logo-marquee {
+  position: relative;
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0.04);
   padding: 1.5rem 0;
-  position: relative;
+  width: 100%;
 }
 
 .logo-track {
   display: flex;
-  width: max-content;
-  animation: scrollRightInfinite 12s linear infinite;
+  animation: scrollLoop 10s linear infinite;
 }
 
 
@@ -409,6 +409,7 @@
 
 .logo-set img {
   height: 36px;
+  margin-right: 3rem;
   filter: grayscale(100%) brightness(1.2);
   opacity: 0.85;
   transition: opacity 0.3s ease;
@@ -926,15 +927,6 @@
 @keyframes scrollLoop {
   0% {
     transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-@keyframes scrollRightInfinite {
-  0% {
-    transform: translateX(0%);
   }
   100% {
     transform: translateX(-50%);
