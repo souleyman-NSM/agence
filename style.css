@@ -457,17 +457,10 @@
 }
 
 .about-section-uiux {
-  background: linear-gradient(135deg, #f8f9fb, #ffffff);
-  padding: 6rem 0;
-  position: relative;
+  background: linear-gradient(135deg, #ffffff, #f3f6fc);
+  padding: 6rem 2rem;
   overflow: hidden;
-}
-
-.about-section-uiux .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4rem;
+  position: relative;
   text-align: center;
 }
 
@@ -477,55 +470,60 @@
   background: var(--gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.5rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .about-section-uiux p {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: var(--text);
-  max-width: 800px;
-  margin-bottom: 2rem;
+  max-width: 750px;
+  margin: 0 auto 1.5rem;
+  line-height: 1.7;
 }
 
 .about-section-uiux .features {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2rem;
-  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
 }
 
 .about-section-uiux .feature {
   background: white;
-  border-radius: var(--radius);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
   padding: 2rem;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 }
 
 .about-section-uiux .feature:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
 }
 
 .about-section-uiux .feature img {
   width: 60px;
+  height: 60px;
   margin-bottom: 1rem;
 }
 
 .about-section-uiux .feature h3 {
-  color: var(--primary);
   font-size: 1.3rem;
+  color: var(--primary);
   margin-bottom: 0.5rem;
 }
 
 .about-section-uiux .feature p {
+  font-size: 1rem;
   color: var(--gray);
-  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 .about-section-uiux .btn-primary {
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
 
   .services, .about-section, .portfolio-section, .pricing-section {
