@@ -457,22 +457,57 @@
   }
 
   .about-section-uiux {
-    background: radial-gradient(circle at top left, #ffffff 0%, #f0f3f9 100%);
+    background: radial-gradient(circle at top left, #ffffff 0%, #f2f4f8 100%);
     padding: 8rem 2rem;
-    position: relative;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-heading {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.2;
+    max-width: 880px;
+    margin: 0 auto 2rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glowText 2s ease-in-out infinite alternate;
+  }
+
+  .about-subtext {
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.8;
+    color: var(--text);
+    max-width: 760px;
+    margin: 0 auto 1.8rem;
+  }
+
+  .about-section-uiux strong {
+    color: var(--primary);
+    font-weight: 700;
   }
   
   .about-section-uiux h2 {
     font-size: 3rem;
     font-weight: 800;
-    background: var(--gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 2rem;
     max-width: 900px;
     margin-inline: auto;
     line-height: 1.3;
+  }
+  
+  @keyframes glowText {
+    from {
+      text-shadow: 0 0 8px rgba(123, 97, 255, 0.3);
+    }
+    to {
+      text-shadow: 0 0 20px rgba(123, 97, 255, 0.5), 0 0 30px rgba(33, 212, 253, 0.4);
+    }
   }
   
   .about-section-uiux p {
