@@ -505,8 +505,8 @@
   }
   
   .about-section-uiux .feature img {
-    width: 60px;
-    height: 60px;
+    width: 150px;
+    height: auto;
     margin-bottom: 1.2rem;
   }
   
