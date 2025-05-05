@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://WeeDeeWeb.fr/seo/sitemap.xml

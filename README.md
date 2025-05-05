@@ -59,5 +59,3 @@ Tablettes
 Navigateurs (Chrome, Safari, Firefox)
 
 📌 À faire : test complet UX/UI sur différents devices
-
-Souhaites-tu que je commence maintenant par te générer les 3 pages légales RGPD conformes ?
