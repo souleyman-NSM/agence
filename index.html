@@ -264,6 +264,7 @@
       <h2 class="contact-title">Prêt à booster votre activité ?</h2>
       <p class="contact-subtitle">Parlez-nous de vos besoins et laissez-nous transformer vos idées en réalité digitale.</p>
       <form class="contact-form enhanced-form" action="https://formsubmit.co/el/codifu" method="POST">
+        <input type="text" name="_honey" style="display:none">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_next" value="http://localhost:8080/merci.html">
 
@@ -658,6 +659,17 @@ document.getElementById('lightbox-modal').addEventListener('click', (e) => {
       }, 1500);
     });
   });
+</script>
+
+
+<script>
+
+acceptBtn.addEventListener("click", () => {
+  localStorage.setItem("cookieConsent", "accepted");
+  banner.style.display = "none";
+  alert("Merci ! Vos préférences de cookies ont été enregistrées.");
+});
+
 </script>
 
 </html>
