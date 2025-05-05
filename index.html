@@ -241,14 +241,18 @@
     <div class="container">
       <h2 class="contact-title">Prêt à booster votre activité ?</h2>
       <p class="contact-subtitle">Parlez-nous de vos besoins et laissez-nous transformer vos idées en réalité digitale.</p>
-      <form class="contact-form enhanced-form">
+      <form class="contact-form enhanced-form" action="https://formsubmit.co/ton@email.com" method="POST">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://votresite.com/merci.html">
+        
         <div class="form-row">
-          <input type="text" placeholder="Votre nom" required />
-          <input type="email" placeholder="Votre e-mail" required />
+          <input type="text" name="name" placeholder="Votre nom" required />
+          <input type="email" name="email" placeholder="Votre e-mail" required />
         </div>
-        <textarea placeholder="Décrivez votre projet..." rows="6" required></textarea>
+        <textarea name="message" placeholder="Décrivez votre projet..." rows="6" required></textarea>
         <button type="submit" class="btn-primary">Envoyer ma demande</button>
       </form>
+      
     </div>
   </section>
   
@@ -290,6 +294,57 @@
     <span class="lightbox-close">&times;</span>
     <img id="lightbox-img" class="lightbox-content" src="" alt="Image en grand format" />
   </div>
+
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-label="Bannière de consentement aux cookies" aria-live="polite">
+    <p>
+      <img src="img/icon-cookie.png" alt="Cookie" style="width:40px; vertical-align:middle; margin-right: 8px;" />
+      Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic. 
+      <a href="/confidentialite.html" class="cookie-link">En savoir plus</a>
+    </p>
+    
+  
+    <div class="cookie-buttons">
+      <button id="accept-cookies" class="btn-cta">Accepter</button>
+      <button id="decline-cookies" class="btn-outline">Refuser</button>
+    </div>
+  </div>
+
+  <script>
+    const banner = document.getElementById("cookie-banner");
+    const acceptBtn = document.getElementById("accept-cookies");
+    const declineBtn = document.getElementById("decline-cookies");
+  
+    // Vérifie si l'utilisateur a déjà fait un choix
+    if (!localStorage.getItem("cookieConsent")) {
+      banner.style.display = "flex";
+    }
+  
+    acceptBtn.addEventListener("click", () => {
+      localStorage.setItem("cookieConsent", "accepted");
+      banner.style.display = "none";
+      // Ici tu peux insérer ton script Google Analytics par exemple
+    });
+  
+    declineBtn.addEventListener("click", () => {
+      localStorage.setItem("cookieConsent", "declined");
+      banner.style.display = "none";
+    });
+  </script>
+  
+  <script>
+    if (localStorage.getItem("cookieConsent") === "accepted") {
+      const scriptGA = document.createElement("script");
+      scriptGA.setAttribute("async", "");
+      scriptGA.setAttribute("src", "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX");
+      document.head.appendChild(scriptGA);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXX');
+    }
+  </script>
+  
 </body>
 <script>
   // ✅ 1. Masquer le préchargeur au chargement complet de la page

@@ -27,6 +27,13 @@ Créer un backend PHP léger ou utiliser une lambda AWS si tu veux rester sur un
 
 📌 À faire : rendre le formulaire fonctionnel + afficher un message de succès/erreur
 
+✅ À remplacer :
+
+ton@email.com : ton adresse où tu recevras les messages.
+
+https://votresite.com/merci.html : une page que tu crées pour dire "Merci pour votre message !" (je peux t'aider à la faire).
+
+
 ## ✅ 4. Optimisation SEO de base
 Tu peux ajouter quelques balises et optimisations :
 
