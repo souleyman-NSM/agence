@@ -1,61 +1,38 @@
-## ✅ 1. Obligations légales à intégrer
-Tu as déjà un footer propre, tu dois maintenant créer les 3 pages suivantes :
+✅ Étape 1 : SEO technique & accessibilité
+ Vérifie que chaque page a un title, une meta description unique, une balise canonical, et utilise bien les balises h1 > h2 > h3 dans l'ordre.
 
-/mentions-legales.html
+ Intègre un fichier robots.txt (✅ déjà présent dans seo/robots.txt) et un sitemap.xml (✅ présent aussi).
 
-/confidentialite.html (Politique de confidentialité RGPD)
+ Teste ton site avec Lighthouse ou via l'inspecteur Chrome > "Audit".
 
-/cgv.html (Conditions générales de vente, si tu vends des prestations)
+✅ Étape 2 : Mobile et performance
+ Teste ton site sur mobile (responsive, performance).
 
-📌 À faire : générer ces 3 pages HTML conformes → Je peux te les fournir tout de suite.
+ Utilise PageSpeed Insights pour voir les axes d’amélioration.
 
-## ✅ 2. Ajoute un système de consentement aux cookies
-Même si tu n’utilises pas encore de Google Analytics, tu dois prévoir une bannière de consentement si un jour tu ajoutes :
+ Active la compression gzip/brotli et le cache navigateur sur ton hébergement (Hostinger).
 
-Google Analytics / Pixel Facebook
+✅ Étape 3 : Sécurité et RGPD
+ Assure-toi que le bandeau cookie fonctionne bien.
 
-Scripts tiers (chat en ligne, tracking, etc.)
+ Ajoute un certificat HTTPS via ton hébergeur (normalement automatique avec Hostinger).
 
-📌 À faire : intégrer une bannière cookie simple (avec acceptation/refus) – je peux t’en coder une légère sans librairie externe.
+ Vérifie que tu as bien un formulaire avec anti-spam (tu utilises FormSubmit, c'est ok).
 
-## ✅ 3. Rendre le formulaire de contact fonctionnel
-Ton formulaire est stylé mais il ne fonctionne pas encore (pas de backend). Tu as deux options :
+✅ Étape 4 : Nom de domaine & hébergement
+ Mets à jour ton nom de domaine dans le robots.txt, sitemap.xml, canonical, etc.
 
-Intégrer une solution gratuite/no-code comme Formspree ou FormSubmit
+ Mets en production : uploade tout sur Hostinger dans le répertoire public_html ou via FTP.
 
-Créer un backend PHP léger ou utiliser une lambda AWS si tu veux rester sur une architecture statique/serveurless
+✅ Étape 5 : Suivi & conversion
+ Active Google Analytics 4 et Google Search Console.
 
-📌 À faire : rendre le formulaire fonctionnel + afficher un message de succès/erreur
+ Configure un pixel Meta ou un tag de conversion si tu prévois de faire de la pub.
 
-✅ À remplacer :
+ Prévois une landing page pour chaque type de service (freelance, artisan, thérapeute, etc.).
 
-ton@email.com : ton adresse où tu recevras les messages.
+✅ Étape 6 : Marketing & lancement
+ Crée un compte Google Business Profile (ex-Google My Business).
 
-https://votresite.com/merci.html : une page que tu crées pour dire "Merci pour votre message !" (je peux t'aider à la faire).
+ Publie ton site sur LinkedIn, Instagram, groupes Facebook, etc.
 
-
-## ✅ 4. Optimisation SEO de base
-Tu peux ajouter quelques balises et optimisations :
-
-Balise <meta name="description" content="...">
-
-Balise Open Graph pour les réseaux sociaux
-
-Balise alt pour toutes les images (c’est presque bon)
-
-Favicon
-
-Fichier robots.txt + sitemap.xml (si tu veux le référencer sur Google)
-
-📌 À faire : intégrer le SEO technique de base
-
-## ✅ 5. Responsive et tests
-Ton site est responsive, mais tu dois tester sur :
-
-Mobile (iOS, Android)
-
-Tablettes
-
-Navigateurs (Chrome, Safari, Firefox)
-
-📌 À faire : test complet UX/UI sur différents devices
