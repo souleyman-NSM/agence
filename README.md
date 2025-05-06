@@ -1,5 +1,8 @@
-✅ Étape 1 : 🎯 Une page de destination claire avec prise de rendez-vous immédiate et un tunnel de conversion !
 
+
+✅ Étape 1 : 🎯 Une page de destination claire avec prise de rendez-vous immédiate et un tunnel de conversion !
+FZ: 45123
+vA7hSX*BG9#yDf
 Concrètement, il manque :
 Une landing page dédiée pour la prise de rendez-vous avec :
 
@@ -135,8 +138,7 @@ Active le HTTPS (SSL) gratuit depuis Hostinger : Hébergement > Gérer > SSL > A
 Ensuite, redirige vers HTTPS avec .htaccess :
 
 apache
-Copier
-Modifier
+
 RewriteEngine On
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
@@ -153,9 +155,6 @@ Récupère l’ID de mesure (ex: G-XXXXXXX)
 
 Intègre-le dans le script déjà présent :
 
-js
-Copier
-Modifier
 gtag('config', 'G-XXXXXXX'); // remplace par ton vrai ID
 📈 Google Search Console
 Va sur https://search.google.com/search-console/
@@ -170,9 +169,6 @@ Colle le code dans <head> ou via GTM
 ✅ 5. Ajouter le lien vers #quote
 Dans le header, ce lien existe :
 
-html
-Copier
-Modifier
 <a href="#quote" class="btn-cta">Demander un devis</a>
 Il doit pointer vers une vraie section ou une page devis.html.
 
@@ -190,6 +186,4 @@ Formulaire rapide
 
 Témoignages
 
-Garanties & CTA
-
-?
+Garanties & CTA ?
