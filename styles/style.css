@@ -969,234 +969,251 @@
    
 
   /* === Animations globales === */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-  100% {
+
+  @keyframes fadeInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+    
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes glowText {
+    from {
+      text-shadow: 0 0 8px var(--primary-light);
+    }
+    to {
+      text-shadow: 0 0 20px var(--secondary-light), 0 0 30px var(--secondary);
+    }
+  }
+
+  @keyframes pulse-secret {
+    0% {
+      transform: scale(1);
+      opacity: 0.9;
+    }
+    50% {
+      transform: scale(1.15);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.9;
+    }
+  }
+
+  @keyframes glowSubtle {
+    from {
+      text-shadow: 0 0 10px rgba(123, 97, 255, 0.3);
+    }
+    to {
+      text-shadow: 0 0 20px rgba(255, 176, 133, 0.5), 0 0 30px rgba(33, 212, 253, 0.3);
+    }
+  }
+
+  .emoji-secret {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 1rem;
+    animation: pulse-secret 2s infinite ease-in-out;
+    display: inline-block;
+  }
+
+
+  /* === Scroll reveal dynamique (appliqué dans JS) === */
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+  }
+
+  [data-animate].visible {
     opacity: 1;
     transform: translateY(0);
   }
-}
 
-@keyframes fadeInLeft {
-  0% {
+  .hero-section {
+    position: relative;
+    background: linear-gradient(to right, #1e1e2f, #10111f);
+    color: var(--white);
+    padding: 6rem 2rem 4rem;
+    overflow: hidden;
+  }
+
+
+  .hero-section {
+    position: relative;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: var(--white);
+    padding: 8rem 2rem;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .cta-button {
+    background-color: var(--white);
+    color: var(--primary);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+
+  .cta-button:hover {
+    background-color: var(--primary-light);
+    color: var(--white);
+  }
+
+  .logo-marquee {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 1rem 0;
+  }
+
+  .logo-track {
+    display: flex;
+    width: calc(250px * 10);
+    animation: scroll 10s linear infinite;
+  }
+
+  .logo-track img {
+    width: 75px;
+    height: auto;
+    margin: 0 1rem;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+  }
+
+  .logo-track img:hover {
+    opacity: 1;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes scrollLoop {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    color: var(--text);
+    padding: 1.2rem 2rem;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
+    z-index: 9999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.95rem;
     opacity: 0;
-    transform: translateX(-30px);
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 1s;
   }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
+
+  @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
   }
-}
 
-@keyframes fadeInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(30px);
+  .cookie-banner p {
+    flex: 1 1 300px;
+    margin: 0;
   }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
+
+  .cookie-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-shrink: 0;
   }
-}
-  
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
+
+  .cookie-link {
+    color: var(--primary);
+    text-decoration: underline;
+    font-weight: 500;
+    margin-left: 8px;
   }
-}
-
-@keyframes glowText {
-  from {
-    text-shadow: 0 0 8px var(--primary-light);
+  .cookie-link:hover {
+    text-decoration: none;
   }
-  to {
-    text-shadow: 0 0 20px var(--secondary-light), 0 0 30px var(--secondary);
+
+  .btn-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #7b61ff;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    z-index: 999;
+    transition: transform 0.2s;
   }
-}
-
-@keyframes pulse-secret {
-  0% {
-    transform: scale(1);
-    opacity: 0.9;
+  .btn-float:hover {
+    transform: scale(1.05);
   }
-  50% {
-    transform: scale(1.15);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0.9;
-  }
-}
-
-@keyframes glowSubtle {
-  from {
-    text-shadow: 0 0 10px rgba(123, 97, 255, 0.3);
-  }
-  to {
-    text-shadow: 0 0 20px rgba(255, 176, 133, 0.5), 0 0 30px rgba(33, 212, 253, 0.3);
-  }
-}
-
-.emoji-secret {
-  font-size: 2rem;
-  text-align: center;
-  margin-top: 1rem;
-  animation: pulse-secret 2s infinite ease-in-out;
-  display: inline-block;
-}
-
-
-/* === Scroll reveal dynamique (appliqué dans JS) === */
-[data-animate] {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
-}
-
-[data-animate].visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.hero-section {
-  position: relative;
-  background: linear-gradient(to right, #1e1e2f, #10111f);
-  color: var(--white);
-  padding: 6rem 2rem 4rem;
-  overflow: hidden;
-}
-
-
-.hero-section {
-  position: relative;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: var(--white);
-  padding: 8rem 2rem;
-  text-align: center;
-  overflow: hidden;
-}
-
-.hero-content h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  font-family: 'Inter', sans-serif;
-}
-
-.hero-content p {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
-  font-family: 'Inter', sans-serif;
-}
-
-.cta-button {
-  background-color: var(--white);
-  color: var(--primary);
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-  background-color: var(--primary-light);
-  color: var(--white);
-}
-
-.logo-marquee {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  overflow: hidden;
-  background-color: rgba(255, 255, 255, 0.05);
-  padding: 1rem 0;
-}
-
-.logo-track {
-  display: flex;
-  width: calc(250px * 10);
-  animation: scroll 10s linear infinite;
-}
-
-.logo-track img {
-  width: 75px;
-  height: auto;
-  margin: 0 1rem;
-  opacity: 0.8;
-  transition: opacity 0.3s ease;
-}
-
-.logo-track img:hover {
-  opacity: 1;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-@keyframes scrollLoop {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.cookie-banner {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: #ffffff;
-  color: var(--text);
-  padding: 1.2rem 2rem;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.08);
-  z-index: 9999;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  font-size: 0.95rem;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 0.8s ease forwards;
-  animation-delay: 1s;
-}
-
-@keyframes fadeInUp {
-  0% { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-.cookie-banner p {
-  flex: 1 1 300px;
-  margin: 0;
-}
-
-.cookie-buttons {
-  display: flex;
-  gap: 1rem;
-  flex-shrink: 0;
-}
-
-.cookie-link {
-  color: var(--primary);
-  text-decoration: underline;
-  font-weight: 500;
-  margin-left: 8px;
-}
-.cookie-link:hover {
-  text-decoration: none;
-}
