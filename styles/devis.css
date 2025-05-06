@@ -1,0 +1,218 @@
+/* ===============================
+   devis.css – Landing Page Devis WeeDeeWeb
+   =============================== */
+
+   :root {
+    --primary: #7b61ff;
+    --secondary: #21d4fd;
+    --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+    --dark: #1a1a1a;
+    --light: #f5f7fa;
+    --white: #fff;
+    --gray: #666;
+    --shadow: rgba(0, 0, 0, 0.06);
+    --radius: 12px;
+    --transition: 0.3s ease-in-out;
+    --font-main: 'Inter', sans-serif;
+  }
+  
+  body {
+    font-family: var(--font-main);
+    background-color: var(--light);
+    color: var(--dark);
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  h1 {
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  h1.hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInUp 1.2s ease both;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--dark);
+    position: relative;
+  }
+  
+  h2::after {
+    content: "";
+    width: 60px;
+    height: 4px;
+    background: var(--primary);
+    display: block;
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+  }
+  
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease forwards;
+  }
+  
+
+  .hero-sub {
+    font-size: 1.25rem;
+    color: var(--gray);
+    text-align: center;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1.2s ease both;
+  }
+  
+  
+  p, li, cite, blockquote {
+    color: var(--gray);
+    font-size: 1.1rem;
+  }
+  
+  ul {
+    list-style: none;
+    padding-left: 0;
+    text-align: center;
+  }
+  
+  ul li {
+    margin: 0.5rem 0;
+  }
+  
+  blockquote {
+    font-style: italic;
+    background: var(--white);
+    padding: 1rem 1.5rem;
+    border-left: 4px solid var(--primary);
+    box-shadow: 0 4px 12px var(--shadow);
+    border-radius: var(--radius);
+    margin-bottom: 1rem;
+  }
+  
+  .btn-primary {
+    background: var(--gradient);
+    color: white;
+    padding: 0.9rem 2rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  }
+  
+  .btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  .contact-form {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--radius);
+    box-shadow: 0 8px 24px var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    animation: fadeInUp 1s ease forwards;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    transition: border 0.3s ease;
+  }
+  
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 4px rgba(33, 212, 253, 0.15);
+    }
+
+    .guarantees {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    justify-items: center;
+    padding: 0;
+    list-style: none;
+    margin-top: 1.5rem;
+    }
+
+    .guarantees li {
+    background: var(--white);
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 10px var(--shadow);
+    font-weight: 500;
+    text-align: center;
+    transition: transform 0.2s ease;
+    }
+
+    .guarantees li:hover {
+    transform: translateY(-4px);
+    }
+
+    @media (max-width: 600px) {
+    .guarantees {
+        grid-template-columns: 1fr;
+    }
+    }
+
+      
+  
+/* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Calendly widget responsive fix */
+  .calendly-inline-widget {
+    width: 100% !important;
+    height: 700px;
+    border-radius: var(--radius);
+    box-shadow: 0 6px 18px var(--shadow);
+    margin-top: 2rem;
+    animation: fadeInUp 1s ease forwards;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    h1.hero-title {
+      font-size: 2.2rem;
+    }
+    .container {
+      padding: 1.5rem;
+    }
+  }
+  

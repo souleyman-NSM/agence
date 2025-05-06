@@ -49,7 +49,7 @@
         <a href="#portfolio">Réalisations</a>
         <a href="#pricing">Tarifs</a>
         <a href="#contact">Contact</a>
-        <a href="#quote" class="btn-cta" style="color: white;">Demander un devis</a>
+        <a href="pages/devis.html" class="btn-cta" style="color: white;">Demander un devis</a>
       </nav>
     </div>
   </header>
@@ -349,42 +349,38 @@
     </div>
   </div>
 
-  <script>
-    const banner = document.getElementById("cookie-banner");
-    const acceptBtn = document.getElementById("accept-cookies");
-    const declineBtn = document.getElementById("decline-cookies");
-  
-    // Vérifie si l'utilisateur a déjà fait un choix
-    if (!localStorage.getItem("cookieConsent")) {
-      banner.style.display = "flex";
-    }
-  
-    acceptBtn.addEventListener("click", () => {
-      localStorage.setItem("cookieConsent", "accepted");
-      banner.style.display = "none";
-      // Ici tu peux insérer ton script Google Analytics par exemple
-    });
-  
-    declineBtn.addEventListener("click", () => {
-      localStorage.setItem("cookieConsent", "declined");
-      banner.style.display = "none";
-    });
-  </script>
-  
-  <script>
-    if (localStorage.getItem("cookieConsent") === "accepted") {
-      const scriptGA = document.createElement("script");
-      scriptGA.setAttribute("async", "");
-      scriptGA.setAttribute("src", "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX");
-      document.head.appendChild(scriptGA);
+  <!-- Bouton flottant téléphone -->
+<div class="floating-call-button" id="callButton">
+  <img src="../public/icons/icon-phone.svg" alt="Appel" />
+</div>
 
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXX');
+<!-- Pop-up centrale pour prise de RDV -->
+<div class="popup-call" id="popupCall">
+  <div class="popup-inner">
+    <h3>🟣 Votre site web premium commence ici.</h3>
+    <p>📞 Réservez un appel stratégique et recevez un devis clair, rapide et sans engagement.</p>
+    <div class="popup-actions">
+      <a href="https://calendly.com/ton-identifiant" class="btn-primary" target="_blank">Réserver un appel Calendly</a>
+      <a href="https://wa.me/33612345678?text=Bonjour%20WeeDeeWeb%2C%20je%20souhaite%20échanger%20sur%20mon%20projet%20web." class="btn-outline" target="_blank">Envoyer un message WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const callBtn = document.getElementById("callButton");
+  const popup = document.getElementById("popupCall");
+
+  callBtn.addEventListener("click", () => {
+    popup.classList.toggle("visible");
+  });
+
+  document.addEventListener("click", function(e) {
+    if (!popup.contains(e.target) && !callBtn.contains(e.target)) {
+      popup.classList.remove("visible");
     }
-  </script>
-  
+  });
+</script>
+
 </body>
 <script>
   // ✅ 1. Masquer le préchargeur au chargement complet de la page
@@ -690,4 +686,43 @@ acceptBtn.addEventListener("click", () => {
 });
 
 </script>
+
+
+<script>
+  const banner = document.getElementById("cookie-banner");
+  const acceptBtn = document.getElementById("accept-cookies");
+  const declineBtn = document.getElementById("decline-cookies");
+
+  // Vérifie si l'utilisateur a déjà fait un choix
+  if (!localStorage.getItem("cookieConsent")) {
+    banner.style.display = "flex";
+  }
+
+  acceptBtn.addEventListener("click", () => {
+    localStorage.setItem("cookieConsent", "accepted");
+    banner.style.display = "none";
+    // Ici tu peux insérer ton script Google Analytics par exemple
+  });
+
+  declineBtn.addEventListener("click", () => {
+    localStorage.setItem("cookieConsent", "declined");
+    banner.style.display = "none";
+  });
+</script>
+
+<script>
+  if (localStorage.getItem("cookieConsent") === "accepted") {
+    const scriptGA = document.createElement("script");
+    scriptGA.setAttribute("async", "");
+    scriptGA.setAttribute("src", "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX");
+    document.head.appendChild(scriptGA);
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXX');
+  }
+</script>
+
+
 </html>

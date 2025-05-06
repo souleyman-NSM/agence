@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Demandez un devis personnalisé pour booster votre activité avec un site web performant, sécurisé et optimisé pour convertir vos visiteurs en clients." />
+  <meta name="keywords" content="devis site web, prise de rendez-vous, création site indépendant, site optimisé SEO, agence web premium" />
+  <meta name="author" content="WeeDeeWeb">
+  <title>Demander un devis – WeeDeeWeb</title>
+  <link rel="stylesheet" href="../styles/devis.css" />
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+  <meta property="og:title" content="Demander un devis – WeeDeeWeb" />
+  <meta property="og:description" content="Réservez un appel stratégique, obtenez un devis rapide, et accédez à un site web sécurisé, rapide et pensé pour la conversion." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://weedeeweb.com/pages/devis.html" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="logo">Wee<span>DeeWeb</span></div>
+      <nav class="nav">
+        <a href="../index.html">Accueil</a>
+        <a href="../index.html#services">Services</a>
+        <a href="../index.html#portfolio">Réalisations</a>
+        <a href="../index.html#contact">Contact</a>
+        <a href="devis.html" class="btn-cta">Demander un devis</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-section">
+    <div class="container">
+      <h1 class="hero-title">Votre site web premium commence ici.</h1>
+      <p class="hero-sub">Réservez un appel stratégique et recevez un devis clair, rapide et sans engagement.</p>
+      <a href="#formulaire" class="btn-primary">📞 Réserver un rendez-vous</a>
+    </div>
+  </section>
+
+  <section class="container fade-in" id="formulaire">
+    <h2>📅 Choisissez votre créneau</h2>
+    <p>Un expert vous rappelle pour évaluer vos besoins gratuitement.</p>
+    <div class="calendly-inline-widget" data-url="https://calendly.com/ton-nom/30min" style="min-width:320px;height:700px;"></div>
+  </section>
+
+  <section class="container fade-in">
+    <h2>📩 Envoyez une demande express</h2>
+    <form action="https://formsubmit.co/el/codifu" method="POST" class="contact-form">
+      <input type="text" name="_honey" style="display:none">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="../pages/merci.html">
+      <input type="text" name="name" placeholder="Votre nom" required>
+      <input type="email" name="email" placeholder="Votre e-mail" required>
+      <textarea name="message" placeholder="Décrivez brièvement votre besoin..." rows="5" required></textarea>
+      <button type="submit" class="btn-primary">📨 Envoyer ma demande</button>
+    </form>
+  </section>
+
+  <section class="container fade-in">
+    <h2>💬 Témoignage client</h2>
+    <blockquote>"Une prestation rapide, sécurisée et parfaitement adaptée à mes besoins. J’ai obtenu des clients dès la première semaine !"</blockquote>
+    <cite>– Marie, thérapeute à Paris</cite>
+  </section>
+
+  <section class="container fade-in">
+    <h2>🛡️ Nos engagements</h2>
+    <ul class="guarantees">
+      <li>🔒 Sécurité HTTPS + conformité RGPD</li>
+      <li>⚡ Livraison rapide sous 72h</li>
+      <li>🎯 Optimisation SEO & conversion</li>
+      <li>📈 Suivi Google Analytics / Pixel Meta</li>
+      <li>🤝 Satisfaction ou remboursé</li>
+    </ul>
+  </section>
+
+  <!-- Suivi conversion (désactivé par défaut) -->
+  <!--
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'TON_PIXEL_ID'); 
+    fbq('track', 'PageView');
+  </script>
+  -->
+</body>
+</html>

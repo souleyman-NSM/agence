@@ -1217,3 +1217,68 @@
   .btn-float:hover {
     transform: scale(1.05);
   }
+
+
+  .floating-call-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #7b61ff;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .floating-call-button:hover {
+    transform: scale(1.1);
+  }
+  
+  .floating-call-button img {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .popup-call {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9998;
+  }
+  
+  .popup-call.visible {
+    display: flex;
+  }
+  
+  .popup-inner {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  }
+  
+  .popup-inner h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: #7b61ff;
+  }
+  
+  .popup-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  
