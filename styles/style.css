@@ -1416,3 +1416,19 @@
   margin-top: 1.2rem;
 }
 
+.popup-cta {
+  text-align: center;
+  margin-top: 30px;
+}
+.popup-cta .btn-cta {
+  background: #000;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+.popup-cta .btn-cta:hover {
+  background: #333;
+}

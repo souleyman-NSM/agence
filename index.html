@@ -234,7 +234,7 @@
             <li>Formulaire de contact relié à votre boîte mail</li>
             <li>Optimisé mobile, rapide et prêt à convertir</li>
           </ul>
-          <a href="#" class="btn-primary price open-popup">Je démarre</a>
+          <a href="#" class="btn-primary price open-offer-popup" data-offer="essentiel">Je démarre</a>
         </div>
   
         <div class="pricing-card">
@@ -246,7 +246,7 @@
             <li>Logo & identité visuelle professionnelle</li>
             <li>Référencement local + Google Analytics installé</li>
           </ul>
-          <a href="#contact" class="btn-primary price">Je me démarque</a>
+          <a href="#" class="btn-primary price open-offer-popup" data-offer="pro">Je me démarque</a>
         </div>
   
         <div class="pricing-card">
@@ -258,7 +258,7 @@
             <li>Tunnel de conversion + prise de RDV automatisée (Calendly, WhatsApp...)</li>
             <li>Coaching 1:1 pendant 30 jours pour faire exploser votre visibilité</li>
           </ul>
-          <a href="#contact" class="btn-primary price">Je veux exploser mon activité</a>
+          <a href="#" class="btn-primary price open-offer-popup" data-offer="signature">Je veux exploser mon activité</a>
         </div>
   
       </div>
@@ -392,11 +392,19 @@
   </div>
 </div>
 
+<div class="popup-call" id="popupOffer">
+  <div class="popup-content">
+    <span class="close-popup" id="closeOfferPopup">&times;</span>
+    <div class="popup-text" id="popupOfferContent">
+      <!-- Le contenu sera injecté dynamiquement -->
+    </div>
+  </div>
+</div>
 
 
 </body>
 <script>
-  // ✅ 1. Masquer le préchargeur au chargement complet de la page
+  // 1. Masquer le préchargeur au chargement complet de la page
   window.addEventListener('load', () => {
     gsap.to('#preloader', {
       opacity: 0,
@@ -409,7 +417,7 @@
 </script>
 
 <script>
-  // ✅ 2. Scroll Reveal : fait apparaître les éléments avec [data-animate] quand ils entrent en vue
+  // 2. Scroll Reveal : fait apparaître les éléments avec [data-animate] quand ils entrent en vue
   const elements = document.querySelectorAll('[data-animate]');
 
   const observer = new IntersectionObserver((entries) => {
@@ -425,7 +433,7 @@
 </script>
 
 <script>
-  // ✅ 3. Parallax sur les sections avec la classe .parallax (arrière-plan qui bouge au scroll)
+  // 3. Parallax sur les sections avec la classe .parallax (arrière-plan qui bouge au scroll)
   gsap.registerPlugin(ScrollTrigger);
 
   gsap.utils.toArray('.parallax').forEach(section => {
@@ -441,7 +449,7 @@
 </script>
 
 <script>
-  // ✅ 4. Apparition en cascade des cartes services (animations décalées)
+  // 4. Apparition en cascade des cartes services (animations décalées)
 
 gsap.utils.toArray('.service-card').forEach((card, i) => {
   gsap.from(card, {
@@ -460,7 +468,7 @@ gsap.utils.toArray('.service-card').forEach((card, i) => {
 
 
 <script>
-  // ✅ 5. Parallax doux sur les images avec la classe .parallax-img en fonction de la souris
+  // 5. Parallax doux sur les images avec la classe .parallax-img en fonction de la souris
 
   document.addEventListener("mousemove", (e) => {
     document.querySelectorAll(".parallax-img").forEach(img => {
@@ -474,7 +482,7 @@ gsap.utils.toArray('.service-card').forEach((card, i) => {
 <script>
   gsap.registerPlugin(ScrollTrigger);
 
-// ✅ 6. Apparition animée du titre principal avec effet GSAP (quand il entre dans l’écran)
+// 6. Apparition animée du titre principal avec effet GSAP (quand il entre dans l’écran)
   gsap.to(".hero-title", {
     opacity: 1,
     y: 0,
@@ -499,7 +507,7 @@ gsap.utils.toArray('.service-card').forEach((card, i) => {
   });
 </script>
 <script>
-  // ✅ 7. Curseur personnalisé qui suit la souris
+  // 7. Curseur personnalisé qui suit la souris
   const cursor = document.querySelector('.custom-cursor');
 
   document.addEventListener('mousemove', e => {
@@ -525,7 +533,7 @@ gsap.utils.toArray('.service-card').forEach((card, i) => {
 </script>
 
 <script>
-  // ✅ 8. Titre animé lettre par lettre (si tu as des .animated-title avec data-text)
+  // 8. Titre animé lettre par lettre (si tu as des .animated-title avec data-text)
 document.querySelectorAll('.animated-title').forEach(title => {
   const text = title.dataset.text;
   title.innerHTML = text
@@ -551,7 +559,7 @@ document.querySelectorAll('.animated-title').forEach(title => {
 </script>
 
 <script>
-  // ✅ 9. Barre de progression de scroll en haut de la page
+  // 9. Barre de progression de scroll en haut de la page
   window.addEventListener('scroll', () => {
   const scroll = window.scrollY;
   const height = document.body.scrollHeight - window.innerHeight;
@@ -561,7 +569,7 @@ document.querySelectorAll('.animated-title').forEach(title => {
 </script>
 
 <script>
-  // ✅ 10. Animation des images portfolio au scroll (zoom et fade in)
+  // 10. Animation des images portfolio au scroll (zoom et fade in)
   gsap.utils.toArray('.portfolio-item img').forEach(img => {
   gsap.from(img, {
     scale: 1.1,
@@ -580,7 +588,7 @@ document.querySelectorAll('.animated-title').forEach(title => {
 </script>
 
 <script>
-  // ✅ 11. Effet “magnétique” sur les boutons (suivent un peu le curseur)
+  // 11. Effet “magnétique” sur les boutons (suivent un peu le curseur)
   document.querySelectorAll('.btn-primary, .btn-cta').forEach(btn => {
   btn.addEventListener('mousemove', e => {
     const rect = btn.getBoundingClientRect();
@@ -605,7 +613,7 @@ document.querySelectorAll('.animated-title').forEach(title => {
     const img = document.getElementById('lightbox-img');
     img.src = this.href;
 
-    // ✅ Activation clics sur le modal
+    // Activation clics sur le modal
     modal.style.display = 'flex';
     modal.style.pointerEvents = 'auto';
     gsap.set(modal, { opacity: 0 });
@@ -636,7 +644,7 @@ document.getElementById('lightbox-modal').addEventListener('click', (e) => {
       delay: 0.2,
       onComplete: () => {
         modal.style.display = 'none';
-        modal.style.removeProperty('pointer-events'); // ✅ corrige les blocages
+        modal.style.removeProperty('pointer-events'); // corrige les blocages
       }
     });
   }
@@ -787,5 +795,106 @@ acceptBtn.addEventListener("click", () => {
   });
 </script>
 
+<script>
+  const offerPopup = document.getElementById("popupOffer");
+  const closeOfferPopup = document.getElementById("closeOfferPopup");
+  const popupContent = document.getElementById("popupOfferContent");
+
+  const offerDetails = {
+    essentiel: {
+      title: "Offre Essentiel – Allez à l’essentiel, mais faites-le bien",
+      content: `
+        <p><strong>Vous démarrez ? Cette offre est pour vous.</strong></p>
+        <ul>
+          <li>Une landing page moderne, rapide, 100% responsive</li>
+          <li>Design professionnel pensé pour la conversion</li>
+          <li>Formulaire de contact connecté directement à votre boîte mail</li>
+          <li>Structure claire pour expliquer qui vous êtes et ce que vous proposez</li>
+        </ul>
+        <p><strong>Idéal pour :</strong> indépendants, freelances, artisans ou coachs qui veulent une présence pro <em>sans attendre 3 mois</em>.</p>
+        <p class="cta-note">⚡ Résultat : un site crédible, rapide, efficace. Zéro blabla.</p>
+        <div class="popup-cta">
+          <a href="https://calendly.com/yacefsouleyman/30min?hide_gdpr_banner=1" target="_blank" class="btn-cta">Réserver mon appel gratuit</a>
+        </div>
+      `
+    },
+    pro: {
+      title: "Offre Pro – L’image d’un pro, la stratégie en plus",
+      content: `
+        <p><strong>Vous ne voulez plus être invisible ? Cette offre donne de l’ampleur à votre image.</strong></p>
+        <ul>
+          <li>site multipages construit sur-mesure pour valoriser votre activité</li>
+          <li>Logo, identité visuelle et charte graphique personnalisée</li>
+          <li>SEO local + installation Google Analytics</li>
+          <li>Une image forte, des pages bien pensées, et des fondations solides pour scaler</li>
+        </ul>
+        <p><strong>Idéal pour :</strong> entrepreneurs, thérapeutes, consultants, PME, boutiques locales.</p>
+        <p class="cta-note">Résultat : on vous trouve, on vous reconnaît, on vous choisit.</p>
+        <div class="popup-cta">
+          <a href="https://calendly.com/yacefsouleyman/30min?hide_gdpr_banner=1" target="_blank" class="btn-cta">Réserver mon appel gratuit</a>
+        </div>
+      `
+    },
+    signature: {
+      title: "Offre Signature – La Rolls Royce de votre business digital",
+      content: `
+        <p><strong>Là on ne plaisante plus. Objectif : faire exploser votre présence et vos ventes.</strong></p>
+        <ul>
+          <li>Site ultra-rapide, pensé pour convertir, sur-mesure à 100%</li>
+          <li>Tunnel de vente avec prise de RDV intégrée (Calendly, WhatsApp…)</li>
+          <li>Responsive, SEO-friendly, et optimisé pour l’UX</li>
+          <li>Coaching 1:1 de 30 jours pour booster visibilité et croissance</li>
+        </ul>
+        <p><strong>Idéal pour :</strong> coachs haut de gamme, business digitaux, pros qui visent l’excellence.</p>
+        <p class="cta-note">Résultat : une machine à clients qui tourne toute seule. Vous méritez mieux que “juste un site”.</p>
+        <div class="popup-cta">
+          <a href="https://calendly.com/yacefsouleyman/30min?hide_gdpr_banner=1" target="_blank" class="btn-cta">Réserver mon appel gratuit</a>
+        </div>
+      `
+    }
+  };
+
+  document.querySelectorAll(".open-offer-popup").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const offer = btn.dataset.offer;
+      const data = offerDetails[offer];
+
+      if (data) {
+        popupContent.innerHTML = `
+          <h3>${data.title}</h3>
+          ${data.content}
+        `;
+        offerPopup.classList.add("visible");
+        gsap.fromTo(".popup-content", { scale: 0.9, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4 });
+      }
+    });
+  });
+
+  closeOfferPopup?.addEventListener("click", () => {
+    offerPopup.classList.remove("visible");
+  });
+
+  document.addEventListener("click", function (e) {
+    if (!offerPopup.contains(e.target) && !e.target.closest(".open-offer-popup")) {
+      offerPopup.classList.remove("visible");
+    }
+  });
+</script>
+
+<script>
+  const popupCalendly = document.getElementById("popupCall");
+
+  // Tous les boutons qui doivent ouvrir le popup Calendly
+  document.querySelectorAll(".open-calendly-popup").forEach(btn => {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      popupCalendly.classList.add("visible");
+    });
+  });
+</script>
+
 
 </html>
+
+
