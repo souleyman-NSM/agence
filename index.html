@@ -308,13 +308,12 @@
       Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic. 
       <a href="pages/confidentialite.html" class="cookie-link">En savoir plus</a>
     </p>
-    
-  
     <div class="cookie-buttons">
       <button id="accept-cookies" class="btn-cta">Accepter</button>
       <button id="decline-cookies" class="btn-outline">Refuser</button>
     </div>
   </div>
+  
 
 <!-- 📞 Bouton flottant téléphone -->
 <div class="floating-call-button" id="callButton">
@@ -676,41 +675,45 @@ acceptBtn.addEventListener("click", () => {
 
 
 <script>
-  const banner = document.getElementById("cookie-banner");
-  const acceptBtn = document.getElementById("accept-cookies");
-  const declineBtn = document.getElementById("decline-cookies");
+  document.addEventListener("DOMContentLoaded", () => {
+    const banner = document.getElementById("cookie-banner");
+    const acceptBtn = document.getElementById("accept-cookies");
+    const declineBtn = document.getElementById("decline-cookies");
 
-  // Vérifie si l'utilisateur a déjà fait un choix
-  if (!localStorage.getItem("cookieConsent")) {
-    banner.style.display = "flex";
-  }
+    // Affiche le bandeau si aucun choix
+    if (!localStorage.getItem("cookieConsent")) {
+      banner.style.display = "flex";
+    }
 
-  acceptBtn.addEventListener("click", () => {
-    localStorage.setItem("cookieConsent", "accepted");
-    banner.style.display = "none";
-    // Ici tu peux insérer ton script Google Analytics par exemple
-  });
+    acceptBtn.addEventListener("click", () => {
+      localStorage.setItem("cookieConsent", "accepted");
+      banner.style.display = "none";
+      enableAnalytics(); // Active Google Analytics
+    });
 
-  declineBtn.addEventListener("click", () => {
-    localStorage.setItem("cookieConsent", "declined");
-    banner.style.display = "none";
+    declineBtn.addEventListener("click", () => {
+      localStorage.setItem("cookieConsent", "declined");
+      banner.style.display = "none";
+    });
+
+    // Active GA si déjà accepté
+    if (localStorage.getItem("cookieConsent") === "accepted") {
+      enableAnalytics();
+    }
+
+    function enableAnalytics() {
+      const scriptGA = document.createElement("script");
+      scriptGA.setAttribute("async", "");
+      scriptGA.setAttribute("src", "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"); // remplace ici
+      document.head.appendChild(scriptGA);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXX'); // remplace ici aussi
+    }
   });
 </script>
-
-<script>
-  if (localStorage.getItem("cookieConsent") === "accepted") {
-    const scriptGA = document.createElement("script");
-    scriptGA.setAttribute("async", "");
-    scriptGA.setAttribute("src", "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX");
-    document.head.appendChild(scriptGA);
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXX');
-  }
-</script>
-
 
 
 <script>
