@@ -172,6 +172,7 @@ Ajouter Meta Pixel si tu comptes faire de la pub
 
 Suivre les événements (boutons, scroll, vues offres, etc.)
 
+
 2. Un CRM simple pour organiser les leads
 ➡️ Pour ne pas rater un prospect.
 
@@ -183,10 +184,14 @@ Ou Airtable avec automatisation
 
 Ou un CRM simple comme Hubspot Free
 
+
+
 3. Une adresse e-mail professionnelle
 ➡️ Pas de @gmail.com, mais plutôt :
 📨 contact@weedeeweb.com
 💡 Tu peux la configurer via Hostinger ou Zoho Mail (gratuit pour 1 domaine)
+
+
 
 4. Facturation et mentions légales à jour
 ➡️ Tu as les pages légales ✔️
