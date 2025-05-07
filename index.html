@@ -234,7 +234,7 @@
             <li>Formulaire de contact relié à votre boîte mail</li>
             <li>Optimisé mobile, rapide et prêt à convertir</li>
           </ul>
-          <a href="#contact" class="btn-primary price">Je démarre</a>
+          <a href="#" class="btn-primary price open-popup">Je démarre</a>
         </div>
   
         <div class="pricing-card">
@@ -392,25 +392,6 @@
   </div>
 </div>
 
-<script>
-  const callBtn = document.getElementById("callButton");
-  const popup = document.getElementById("popupCall");
-  const closePopup = document.getElementById("closePopup");
-
-  callBtn.addEventListener("click", () => {
-    popup.classList.add("visible");
-  });
-
-  closePopup.addEventListener("click", () => {
-    popup.classList.remove("visible");
-  });
-
-  document.addEventListener("click", function (e) {
-    if (!popup.contains(e.target) && !callBtn.contains(e.target)) {
-      popup.classList.remove("visible");
-    }
-  });
-</script>
 
 
 </body>
@@ -756,13 +737,55 @@ acceptBtn.addEventListener("click", () => {
   }
 </script>
 
-<script>
-  const openCalendlyPopup = document.getElementById("openCalendlyPopup");
 
-  openCalendlyPopup.addEventListener("click", (e) => {
-    e.preventDefault(); // empêcher le comportement par défaut du lien
-    popup.classList.add("visible");
+
+<script>
+  document.querySelectorAll(".open-popup").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      document.getElementById("popupCall").classList.add("visible");
+    });
   });
 </script>
+<script>
+  // Initialisation du popup et des éléments de contrôle
+  const popup = document.getElementById("popupCall");
+  const callBtn = document.getElementById("callButton");
+  const closePopup = document.getElementById("closePopup");
+  const openCalendlyPopup = document.getElementById("openCalendlyPopup");
+  const popupTriggers = document.querySelectorAll(".open-popup");
+
+  // Fonction d'ouverture du popup
+  function openPopup() {
+    popup.classList.add("visible");
+  }
+
+  // Écouteurs d’événements pour ouvrir le popup
+  callBtn?.addEventListener("click", openPopup);
+  openCalendlyPopup?.addEventListener("click", (e) => {
+    e.preventDefault();
+    openPopup();
+  });
+
+  popupTriggers.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      openPopup();
+    });
+  });
+
+  // Fermeture du popup
+  closePopup?.addEventListener("click", () => {
+    popup.classList.remove("visible");
+  });
+
+  // Fermer si on clique en dehors
+  document.addEventListener("click", function (e) {
+    if (!popup.contains(e.target) && !callBtn.contains(e.target) && !e.target.closest(".btn-cta")) {
+      popup.classList.remove("visible");
+    }
+  });
+</script>
+
 
 </html>
