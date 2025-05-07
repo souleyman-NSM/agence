@@ -50,7 +50,7 @@
         <a href="#portfolio">Réalisations</a>
         <a href="#pricing">Tarifs</a>
         <a href="#contact">Contact</a>
-        <a href="pages/devis.html" class="btn-cta" style="color: white;">Demander un devis</a>
+        <a href="#" id="openCalendlyPopup" class="btn-cta" style="color: white;">Demander un devis</a>
       </nav>
     </div>
   </header>
@@ -352,7 +352,7 @@
 
 <!-- 📞 Bouton flottant téléphone -->
 <div class="floating-call-button" id="callButton">
-  <img src="public/icons/icon-phone.svg" alt="Réserver un appel" />
+  <img src="public/icons/icon-phone.png" alt="Réserver un appel" />
 </div>
 
 <!-- 🧠 Pop-up premium avec calendrier -->
@@ -756,5 +756,13 @@ acceptBtn.addEventListener("click", () => {
   }
 </script>
 
+<script>
+  const openCalendlyPopup = document.getElementById("openCalendlyPopup");
+
+  openCalendlyPopup.addEventListener("click", (e) => {
+    e.preventDefault(); // empêcher le comportement par défaut du lien
+    popup.classList.add("visible");
+  });
+</script>
 
 </html>

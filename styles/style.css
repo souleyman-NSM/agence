@@ -1221,11 +1221,11 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: #7b61ff;
+    background: transparent;
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1237,8 +1237,8 @@
     transform: scale(1.1);
   }
   .floating-call-button img {
-    width: 28px;
-    height: 28px;
+    width: 100px;
+    height: auto;
   }
   
   .popup-call {
