@@ -1453,3 +1453,14 @@
   background: var(--accent-color);
   color: white;
 }
+
+.popup-call {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.popup-call.visible {
+  display: block;
+  opacity: 1;
+}

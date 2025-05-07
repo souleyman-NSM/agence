@@ -48,9 +48,8 @@
         <a href="#about">À propos</a>
         <a href="#services">Services</a>
         <a href="#portfolio">Réalisations</a>
-        <a href="#pricing">Tarifs</a>
-        <a href="#contact">Contact</a>
-        <a href="#" id="openCalendlyPopup" class="btn-cta" style="color: white;">Demander un devis</a>
+        <a href="#pricing">Offres</a>
+        <a href="#" id="openCalendlyPopup" class="btn-cta" style="color: white;">Réserver un appel</a>
       </nav>
     </div>
   </header>
@@ -123,7 +122,7 @@
       <p class="about-subtext">
         Votre futur client est déjà en ligne. La vraie question, c’est : <strong>est-ce qu’il vous trouve ?</strong> Et s’il vous trouve... est-ce qu’il vous choisit ?
       </p>
-      <a href="#contact" class="btn-primary magnetic-btn">Votre croissance commence ici</a>
+      <a href="#" class="btn-primary magnetic-btn open-calendly-popup">Votre croissance commence ici</a>
     </div>
   </section>
   
@@ -264,8 +263,7 @@
       </div>
     </div>
   </section>
-  
-  
+
 
   <footer class="footer">
     <div class="container footer-grid">
@@ -280,8 +278,7 @@
           <li><a href="#about">À propos</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#portfolio">Réalisations</a></li>
-          <li><a href="#pricing">Tarifs</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#pricing">Offres</a></li>
         </ul>
       </div>
   
@@ -724,45 +721,7 @@ acceptBtn.addEventListener("click", () => {
     });
   });
 </script>
-<script>
-  // Initialisation du popup et des éléments de contrôle
-  const popup = document.getElementById("popupCall");
-  const callBtn = document.getElementById("callButton");
-  const closePopup = document.getElementById("closePopup");
-  const openCalendlyPopup = document.getElementById("openCalendlyPopup");
-  const popupTriggers = document.querySelectorAll(".open-popup");
 
-  // Fonction d'ouverture du popup
-  function openPopup() {
-    popup.classList.add("visible");
-  }
-
-  // Écouteurs d’événements pour ouvrir le popup
-  callBtn?.addEventListener("click", openPopup);
-  openCalendlyPopup?.addEventListener("click", (e) => {
-    e.preventDefault();
-    openPopup();
-  });
-
-  popupTriggers.forEach(btn => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault();
-      openPopup();
-    });
-  });
-
-  // Fermeture du popup
-  closePopup?.addEventListener("click", () => {
-    popup.classList.remove("visible");
-  });
-
-  // Fermer si on clique en dehors
-  document.addEventListener("click", function (e) {
-    if (!popup.contains(e.target) && !callBtn.contains(e.target) && !e.target.closest(".btn-cta")) {
-      popup.classList.remove("visible");
-    }
-  });
-</script>
 
 <script>
   const offerPopup = document.getElementById("popupOffer");
@@ -851,19 +810,28 @@ acceptBtn.addEventListener("click", () => {
   });
 </script>
 
-<script>
-  const popupCalendly = document.getElementById("popupCall");
 
-  // Tous les boutons qui doivent ouvrir le popup Calendly
-  document.querySelectorAll(".open-calendly-popup").forEach(btn => {
-    btn.addEventListener("click", function (e) {
-      e.preventDefault();
-      popupCalendly.classList.add("visible");
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const popupCalendly = document.getElementById("popupCall");
+
+    document.querySelectorAll(".open-calendly-popup, #openCalendlyPopup, #callButton").forEach(btn => {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        popupCalendly.classList.add("visible");
+      });
+    });
+
+    document.getElementById("closePopup").addEventListener("click", () => {
+      popupCalendly.classList.remove("visible");
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!popupCalendly.contains(e.target) && !e.target.closest(".open-calendly-popup, #openCalendlyPopup, #callButton")) {
+        popupCalendly.classList.remove("visible");
+      }
     });
   });
 </script>
 
-
 </html>
-
-
